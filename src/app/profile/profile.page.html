@@ -1,0 +1,95 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+       <ion-back-button text="Back" icon="chevron-back" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-label>Edit profile</ion-label>
+  <ion-row class="title">
+    <div class="image">
+      <img src="../../assets/img/me!.png"/>
+      <ion-icon class="photo-icon" src="../../assets/img/photo.svg"></ion-icon>
+    </div>
+    <span class="name">Max Mustermann</span>
+  </ion-row>
+  <div class="container">
+     <ion-item>
+      <ion-label position="stacked">First name</ion-label>
+      <ion-input>
+        <ion-icon slot="start" src="../../assets/img/profile-icon.svg"></ion-icon>
+        <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Last name</ion-label>
+      <ion-input>
+        <ion-icon slot="start" src="../../assets/img/profile-icon.svg"></ion-icon>
+        <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Number phone</ion-label>
+      <ion-input>
+        <ion-icon slot="start" src="../../assets/img/phone-icon.svg"></ion-icon>
+        <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">E-mail</ion-label>
+      <ion-input>
+        <ion-icon slot="start" src="../../assets/img/mail-icon.svg"></ion-icon>
+        <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item class="phone-model-item">
+      <ion-label position="stacked">Phone's model</ion-label>
+      <ion-input>
+        <ion-icon slot="start" src="../../assets/img/phone-model-icon.svg"></ion-icon>
+        <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
+      </ion-input>
+    </ion-item>
+  </div>
+
+  <div class="container">
+     <ion-item (click)="redirect('reports')">
+       <span><ion-icon slot="start" src="../../assets/img/reports-history-icon.svg"></ion-icon>Reports history</span>
+    </ion-item>
+    <ion-item (click)="redirect('estimate-phone')">
+      <span><ion-icon slot="start" src="../../assets/img/estimate-phone-icon.svg"></ion-icon>Estimate a phone</span>
+    </ion-item>
+    <ion-item (click)="redirect('settings')">
+      <span><ion-icon slot="start" src="../../assets/img/settings-icon.svg"></ion-icon>Settings</span>
+    </ion-item>
+    <ion-item class="phone-model-item" (click)="redirect('location')">
+      <span><ion-icon slot="start" src="../../assets/img/location-icon.svg"></ion-icon>Locations</span>
+    </ion-item>
+  </div>
+  <ion-row class="enter-button">
+    <ion-button (click)="getStarted()" class="bottom-button">Save</ion-button>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-icon (click)="redirect('home')" src="../../assets/img/home-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('location')" src="../../assets/img/location-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('add-report')" class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('reports')" src="../../assets/img/reports-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon src="../../assets/img/profile-icon-chosen.svg"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

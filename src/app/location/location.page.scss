@@ -1,0 +1,46 @@
+ion-header {
+  ion-toolbar {
+    --background: #F5F6FA;
+    ion-buttons {
+      ion-back-button {
+        font-size: 4vw;
+        --color: #16181B;
+        text-transform: none;
+      }
+    }
+  }
+}
+ion-label {
+  margin-left: 10vw;
+  font-size: 7vw;
+  font-weight: 600;
+
+}
+.map-wrapper {
+  width: 100%;
+  margin-top: 5vw;
+  border-radius: 3vw;
+  #map {
+    border-radius: 3vw;
+    height: 120vw;
+    width: 90%;
+    margin: auto;
+  }
+}
+ion-footer {
+  ion-row {
+    ion-col {
+      text-align: center;
+      ion-icon {
+        position: relative;
+        top: 35%;
+        font-size: 5vw;
+      }
+      .add-button {
+        top: 0%;
+        width: 15vw;
+        font-size: 15vw;
+      }
+    }
+  }
+}

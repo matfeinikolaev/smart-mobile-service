@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button text="Back" icon="chevron-back" defaultHref="entry"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-label>Login</ion-label>
+  <ion-row class="logo">
+    <ion-icon src="../../assets/img/logo.svg"></ion-icon>
+  </ion-row>
+  <div class="container">
+    <ion-item>
+      <ion-input placeholder="E-mail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Password"></ion-input>
+    </ion-item>
+    <ion-row>
+      <span class="social-login-title">Or login using social media </span>
+    </ion-row>
+    <ion-row class="social-login-row">
+      <ion-col>
+        <ion-icon name="logo-google"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="logo-apple"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-col>
+    </ion-row>   
+  </div>
+  <span class="errorMessage" *ngIf="displayError">{{errorMessage}}</span>
+  <ion-row class="next-button">
+    <ion-button (click)="next()">Login</ion-button>
+  </ion-row>
+  <ion-row class="face-id">
+    <ion-icon src="../../assets/img/face-id_white.svg"></ion-icon>
+  </ion-row>
+</ion-content>

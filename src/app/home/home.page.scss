@@ -1,0 +1,128 @@
+ion-header {
+  ion-toolbar {
+    --background: #F5F6FA;
+    ion-buttons {
+      ion-back-button {
+        font-size: 4vw;
+        --color: #16181B;
+        text-transform: none;
+      }
+    }
+  }
+}
+ion-label {
+  margin-left: 10vw;
+  font-size: 7vw;
+  font-weight: 600;
+
+}
+.logo {
+  width: 100%;
+  margin-top: 10vw;
+  ion-icon {
+    width: 40vw;
+    font-size: 25vw;
+    margin: auto;
+  }
+}
+.title {
+  width: 100%;
+  margin-top: 7vw;
+  p {
+    width: 80vw;
+    text-align: center;
+    font-size: 5vw;
+    font-family: "SFProDisplay";
+    color: #FF6B01;
+    font-variant: small-caps;
+    letter-spacing: -0.333333px;
+    text-shadow: 4px 4px 10px rgba(22, 24, 27, 0.35);
+    backdrop-filter: blur(6px);
+    margin: auto;
+  }
+  img {
+    width: 40vw;
+    height: 40vw;
+    object-fit:cover ;
+    margin: auto;
+    border-radius: 50%;
+  }
+  span {
+    width: 80vw;
+    text-align: center;
+    font-family: "SFProDisplay";
+    color: #16181B;
+    margin: auto;
+  }
+  .name {
+    margin-top: 6vw;
+    font-size: 6vw;
+  }
+  .location {
+    margin-top: 6vw;
+    margin-bottom: 6vw;
+    font-size: 4vw;
+    font-variant: small-caps;
+  }
+  ion-icon {
+    width: 40vw;
+    font-size: 4vw;
+    margin: auto;
+  }
+}
+.cloud-est-button {
+  text-align: center;
+  width: 100%;
+  margin: 5vw 0 5vw 0;
+}
+.cloud-est-button.first {
+  ion-button {
+    width: 90%;
+    height: 17vw;
+    font-size: 5vw;
+    color: white;
+    --background: #16181B;
+    font-weight: normal;
+    --border-radius: 1.5vw;
+    --border-color: #000000;
+    --border-style: solid;
+    --border-width: 1px;
+    --background-activated: none;
+    margin:auto;
+  }
+}
+.cloud-est-button.second {
+  ion-button {
+    width: 90%;
+    height: 17vw;
+    font-size: 5vw;
+    color: #2D2F32;
+    --background: white;
+    font-weight: normal;
+    --border-radius: 1.5vw;
+    --border-color: #000000;
+    --border-style: solid;
+    --border-width: 1px;
+    --background-activated: none;
+    margin: auto;
+  }
+}
+
+ion-footer {
+  ion-row {
+    ion-col {
+      text-align: center;
+      ion-icon {
+        position: relative;
+        top: 35%;
+        font-size: 5vw;
+        color: #16181B;
+      }
+      .add-button {
+        top: 0%;
+        width: 15vw;
+        font-size: 15vw;
+      }
+    }
+  }
+}

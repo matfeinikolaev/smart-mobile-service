@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+       <ion-back-button text="Back" icon="chevron-back" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-label>Location</ion-label>
+  <div class="map-wrapper">
+    <div id="map" #mapElement>
+
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-icon (click)="redirect('home')" src="../../assets/img/home-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon src="../../assets/img/location-icon-chosen.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('add-report')" class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('reports')" src="../../assets/img/reports-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('profile')" src="../../assets/img/profile-icon.svg"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

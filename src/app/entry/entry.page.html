@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="page-center">
+      <ion-row class="logo">
+        <ion-icon src="../../assets/img/logo.svg"></ion-icon>
+      </ion-row>
+      <ion-row class="title">
+        <p>Smart Mobile Service</p>
+      </ion-row>
+      <ion-row class="title">
+        <ion-icon src="../../assets/img/by-fast.svg"></ion-icon>
+      </ion-row>
+    </div>
+    <ion-row class="buttons">
+      <ion-col>
+        <ion-button class="login-button" (click)="redirect('login')">Login</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button class="register-button" (click)="redirect('register')">Register</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

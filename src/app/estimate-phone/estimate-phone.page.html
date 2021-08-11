@@ -1,0 +1,73 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+       <ion-back-button text="Back" icon="chevron-back" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-label>Estimate phone</ion-label>
+  
+  <div class="container" *ngIf="!getReport">
+    <ion-item (click)="estimatePhone()">
+      <span><ion-icon slot="start" src="../../assets/img/estimate-phone-icon.svg"></ion-icon>Estimate a phone</span>
+      <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+    </ion-item>
+    <ion-item class="phone-model-item">
+      <span><ion-icon slot="start" src="../../assets/img/analisys.svg"></ion-icon>Analisys Using</span>
+      <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+    </ion-item>
+  </div>
+
+ <div class="container" *ngIf="!getReport">
+    <ion-item (click)="openGetEstimating()">
+      <span><ion-icon slot="start" src="../../assets/img/get-estimating.svg"></ion-icon>Get estimating</span>
+      <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+   </ion-item>
+   <ion-item *ngIf="displayGetEstimating">
+     <span class="get-estimating-element">Phone age</span>
+     <span slot="end" class="estimate">11 years</span>
+   </ion-item>
+   <ion-item *ngIf="displayGetEstimating">
+     <span class="get-estimating-element">Defect</span>
+     <span slot="end" class="estimate">Sreen</span>
+   </ion-item>
+   <ion-item class="phone-model-item" *ngIf="displayGetEstimating">
+     <span class="get-estimating-element">Battery wear</span>
+     <span slot="end" class="estimate">20%</span>
+   </ion-item>
+ </div>
+ 
+  <div *ngIf="getReport" class="download-report-container">
+    <ion-label>Report</ion-label>
+    <br>
+    <ion-icon src="../../assets/img/download-report-icon.svg"></ion-icon>
+  </div>
+
+ <ion-row class="enter-button">
+   <ion-button (click)="getStarted()" class="bottom-button">Estimate</ion-button>
+ </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-icon (click)="redirect('home')" src="../../assets/img/home-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('location')" src="../../assets/img/location-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('add-report')" class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('reports')" src="../../assets/img/reports-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('profile')" src="../../assets/img/profile-icon.svg"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

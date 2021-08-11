@@ -1,0 +1,64 @@
+.logo {
+  width: 100%;
+  margin-top: 10vw;
+  ion-icon {
+    width: 40vw;
+    font-size: 30vw;
+    margin: auto;
+  }
+}
+.title {
+  width: 100%;
+  margin-top: 7vw;
+  p {
+    width: 80vw;
+    text-align: center;
+    font-size: 5vw;
+    font-family: "SFProDisplay";
+    color: #FF6B01;
+    font-variant: small-caps;
+    letter-spacing: -0.333333px;
+    text-shadow: 4px 4px 10px rgba(22, 24, 27, 0.35);
+    backdrop-filter: blur(6px);
+    margin: auto;
+  }
+  ion-icon {
+    width: 40vw;
+    font-size: 4vw;
+    margin: auto;
+  }
+}
+.container {
+  height: 90%;
+  .page-center {
+    position: absolute;
+    width: 100%;
+    top: 35%;
+  }
+  .buttons {
+    position: relative;
+    top: 100%;
+  }
+  ion-col {
+    text-align: center;
+  }
+}
+ion-button {
+  width: 90%;
+  height: 17vw;
+  font-size: 4vw;
+  font-weight: normal;
+  --border-radius: 1.5vw;
+  --border-color: #000000;
+  --border-style: solid;
+  --border-width: 1px;
+  --background-activated: none;
+}
+.login-button {
+  --background: #FFF;
+  color: black;
+}
+.register-button {
+  --background: #000000;
+  color: white;
+}

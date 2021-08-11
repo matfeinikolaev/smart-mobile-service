@@ -1,0 +1,127 @@
+ion-header {
+  ion-toolbar {
+    --background: #F5F6FA;
+    ion-buttons {
+      ion-back-button {
+        font-size: 4vw;
+        --color: #16181B;
+        text-transform: none;
+      }
+    }
+  }
+}
+ion-label {
+  margin-left: 10vw;
+  font-size: 7vw;
+  font-weight: 600;
+}
+p {
+  margin-left: 10vw;
+  font-size: 5vw;
+  font-weight: 400;
+}
+.enter-button {
+  text-align: center;
+  width: 100%;
+  margin: 5vw 0 5vw 0;
+  ion-button {
+    --background: #16181B;
+    --border-radius: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    color: white;
+    height: 17vw;
+    text-transform:none;
+    font-size: 6vw;
+    width: 95%;
+    margin:auto;
+  }
+}
+
+ion-row {
+  ion-col {
+    text-align: center;
+    ion-button {
+      width: 40vw;
+      height: 20vw;
+      font-size: 4vw;
+      --background: white;
+      color: #2D2F32;
+      --border-radius: 3vw;
+      --background-activated: none;
+
+    }
+    // .active {
+    //   box-shadow: 4px 4px 10px rgba(117, 117, 117, 0.45);
+    // }
+  }
+}
+
+.add-card {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  background-color: white;
+  box-shadow: 4px 4px 10px rgba(231, 233, 239, 0.25);
+  border: 1px solid white;
+  border-radius: 3vw;
+  margin-top: 4vw;
+  margin-bottom: 6vw;
+  ion-item {
+    border-radius: 3vw;
+    --padding-start: 0px;
+    ion-label {
+      color: #797979;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 3vw;
+    }
+    ion-input {
+      font-size: 4vw;
+      ion-icon {
+        font-size: 5vw;
+        margin-left: 4vw;
+        margin-right: 4vw;
+      }
+    }
+    span {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 4vw;
+      line-height: 128.91%;
+      color: #16181B;
+      padding-top: 6vw;
+      padding-bottom: 2vw;
+      ion-icon {
+        font-size: 5vw;
+        margin-left: 4vw;
+        margin-right: 4vw;
+        margin-bottom: -1vw;
+      }
+    }
+  }
+  .pencil-icon {
+    position: absolute;
+    right: -3vw;
+  }
+  .phone-model-item {
+    margin-bottom: 5vw;
+  }
+}
+ion-footer {
+  ion-row {
+    ion-col {
+      text-align: center;
+      ion-icon {
+        position: relative;
+        top: 35%;
+        font-size: 5vw;
+      }
+      .add-button {
+        top: 0%;
+        width: 15vw;
+        font-size: 15vw;
+      }
+    }
+  }
+}

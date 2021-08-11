@@ -1,0 +1,69 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+       <ion-back-button text="Back" icon="chevron-back" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-label>Mobile data</ion-label>
+  
+  <div class="container">
+    <ion-item>
+     <ion-label position="stacked">Model</ion-label>
+     <ion-input>
+       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+     </ion-input>
+   </ion-item>
+   <ion-item>
+     <ion-label position="stacked">Volume memory</ion-label>
+     <ion-input>
+       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+     </ion-input>
+   </ion-item>
+   <ion-item>
+     <ion-label position="stacked">Defect</ion-label>
+     <ion-input>
+       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+     </ion-input>
+   </ion-item>
+   <ion-item>
+     <ion-label position="stacked">Serial number</ion-label>
+     <ion-input>
+       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+     </ion-input>
+   </ion-item>
+   <ion-item class="phone-model-item" (click)="redirect('defect')">
+     <ion-label position="stacked">Other defect</ion-label>
+     <ion-input>
+       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+     </ion-input>
+   </ion-item>
+ </div>
+ <ion-row class="enter-button">
+   <ion-button (click)="redirect('pay')" class="bottom-button">Pay</ion-button>
+ </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-icon (click)="redirect('home')" src="../../assets/img/home-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('location')" src="../../assets/img/location-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('reports')" src="../../assets/img/reports-icon.svg"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="redirect('profile')" src="../../assets/img/profile-icon.svg"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

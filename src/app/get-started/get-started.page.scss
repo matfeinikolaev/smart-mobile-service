@@ -1,0 +1,58 @@
+.logo {
+  width: 100%;
+  margin-top: 10vw;
+  ion-icon {
+    width: 40vw;
+    font-size: 15vw;
+    margin: auto;
+  }
+}
+.swiper-slide {
+  display: block;
+}
+
+.image {
+  width: 100%;
+  margin-top: 10vw;
+  ion-icon {
+    font-size: 75vw;
+    margin: auto;
+  }
+}
+.title {
+  width: 100%;
+  margin-top: 15vw;
+  p {
+    width: 80vw;
+    text-align: center;
+    font-size: 4vw;
+    font-family: "SFProDisplay";
+    margin: auto;
+  }
+}
+
+ion-slides {
+  height: 75%;
+  --bullet-background: #FF6B01;
+  --bullet-background-active: #FF6B01;
+  margin-bottom: 5vw;
+}
+
+.enter-button {
+  text-align: center;
+  width: 100%;
+  margin: 5vw 0 5vw 0;
+  ion-button {
+    --background: #16181B;
+    --border-radius: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    color: white;
+    height: 17vw;
+    text-transform:none;
+    --background-activated: none;
+    font-size: 6vw;
+    width: 95%;
+    margin:auto;
+  }
+}
