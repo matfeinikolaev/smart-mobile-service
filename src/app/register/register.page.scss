@@ -55,10 +55,18 @@ ion-label {
   border-radius: 3vw;
   margin-top: 4vw;
   margin-bottom: 6vw;
+  .item-with-error {
+    --border-color: #FF6B01;
+    .input-with-error {
+      color: #FF6B01;
+    }
+  }
   ion-item {
     border-radius: 3vw;
     --padding-start: 0px;
     width: 100%;
+    --highlight-color-focused: none;
+    --highlight-color-valid: none;
     ion-label {
       color: #797979;
       font-style: normal;
@@ -114,6 +122,15 @@ ion-label {
   font-size: 3vw;
   font-weight: 400;
 }
+.errorMessage {
+  text-align: center;
+  width: 100%;
+  span {
+    width: 90%;
+    margin:auto;
+    color: #FF6B01;
+  }
+}
 .next-button {
   text-align: center;
   width: 100%;
@@ -125,10 +142,10 @@ ion-label {
     --background: #16181B;
     font-weight: normal;
     --border-radius: 1.5vw;
-    --border-color: #000000;
-    --border-style: solid;
-    --border-width: 1px;
-    --background-activated: none;
+    
+    --background-activated-opacity: 1;
+    --background-activated: #FF6B01;
+    --color-activated: white;
     margin:auto;
   }
 }
@@ -141,8 +158,11 @@ ion-label {
     margin: auto;
   }
 }
-.errorMessage {
-  color: red;
+.emailErrorMessage, .passwordErrorMessage {
+  font-size: 3vw;
+  float: left;
+  margin-left: 4vw;
+  color: #FF6B01;
 }
 .agreement {
   width: 100%;

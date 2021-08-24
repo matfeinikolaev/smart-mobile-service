@@ -35,6 +35,10 @@ p {
     font-size: 6vw;
     width: 95%;
     margin:auto;
+    
+    --background-activated-opacity: 1;
+    --background-activated: #FF6B01;
+    --color-activated: white;
   }
 }
 
@@ -51,9 +55,10 @@ ion-row {
       --background-activated: none;
 
     }
-    // .active {
-    //   box-shadow: 4px 4px 10px rgba(117, 117, 117, 0.45);
-    // }
+    .active {
+      --background: #FF6B01;
+      color: white;
+    }
   }
 }
 
@@ -67,45 +72,53 @@ ion-row {
   border-radius: 3vw;
   margin-top: 4vw;
   margin-bottom: 6vw;
-  ion-item {
-    border-radius: 3vw;
-    --padding-start: 0px;
-    ion-label {
-      color: #797979;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 3vw;
+  padding: 4vw;
+  ion-row {
+    h1 {
+      font-size: 6vw;
+      margin-left: 5vw;
     }
-    ion-input {
-      font-size: 4vw;
-      ion-icon {
-        font-size: 5vw;
-        margin-left: 4vw;
-        margin-right: 4vw;
+    ion-col {
+      width: 1vw;
+      text-align: center;
+      ion-input, ion-datetime {
+        font-size: 4vw;
+        color: #797979;
+        border-bottom: 1px solid #797979;
       }
     }
-    span {
-      font-style: normal;
-      font-weight: normal;
-      font-size: 4vw;
-      line-height: 128.91%;
-      color: #16181B;
-      padding-top: 6vw;
-      padding-bottom: 2vw;
-      ion-icon {
-        font-size: 5vw;
-        margin-left: 4vw;
-        margin-right: 4vw;
-        margin-bottom: -1vw;
-      }
+    margin-bottom: 4vw;
+  }
+  .bottom-row {
+    margin-bottom: 4vw;
+    .date-column {
+      width: 4vw;
     }
   }
-  .pencil-icon {
-    position: absolute;
-    right: -3vw;
-  }
-  .phone-model-item {
-    margin-bottom: 5vw;
+}
+.back-to-methods {
+  text-align: center;
+  width: 100%;
+  margin: 4vw 0 5vw 0;
+  span {
+    height: 24px;
+
+    //font-family: "Proxima Nova", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+
+    color: #9FADBE;
+    font-size: 5vw;
+    width: 95%;
+    margin:auto;
+    a {
+      color: #0A5EBD;
+      text-decoration: none;
+    }
   }
 }
 ion-footer {

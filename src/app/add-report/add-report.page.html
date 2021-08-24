@@ -1,48 +1,54 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-       <ion-back-button text="Back" icon="chevron-back" defaultHref="home"></ion-back-button>
+       <ion-back-button text="{{backButtonText}}" icon="chevron-back" defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-label>Mobile data</ion-label>
+  <ion-label>{{titleText}}</ion-label>
   
   <div class="container">
     <ion-item>
-     <ion-label position="stacked">Model</ion-label>
-     <ion-input>
+     <ion-label position="stacked">{{modelLabelText}}</ion-label>
+     <ion-select [(ngModel)]="data.mobileData.phoneModel">
+       <ion-select-option value="xs">iPhone XS</ion-select-option>
+       <ion-select-option value="xs-mas">iPhone XS Max</ion-select-option>
+     </ion-select>
+     <ion-icon class="chevron-icon-model" style="top:45%" slot="end" name="chevron-forward-sharp"></ion-icon>
+     <!-- <ion-input>
        <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+     </ion-input> -->
+   </ion-item>
+   <ion-item>
+     <ion-label position="stacked">{{volumeMemoryLabelText}}</ion-label>
+     <ion-input [(ngModel)]="data.mobileData.volumeMemory">
+       <!-- <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon> -->
      </ion-input>
    </ion-item>
    <ion-item>
-     <ion-label position="stacked">Volume memory</ion-label>
-     <ion-input>
-       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
-     </ion-input>
+     <ion-label position="stacked">{{defectLabelText}}</ion-label>     
+     <ion-select [(ngModel)]="data.mobileData.defect">
+       <ion-select-option *ngFor="let defect of data.user.defects" value="defect">{{defect}}</ion-select-option>
+     </ion-select>
    </ion-item>
    <ion-item>
-     <ion-label position="stacked">Defect</ion-label>
-     <ion-input>
-       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+     <ion-label position="stacked">{{serialNumberLabelText}}</ion-label>
+     <ion-input [(ngModel)]="data.mobileData.serialNumber">
+       <!-- <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon> -->
      </ion-input>
    </ion-item>
-   <ion-item>
-     <ion-label position="stacked">Serial number</ion-label>
-     <ion-input>
-       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
-     </ion-input>
-   </ion-item>
-   <ion-item class="phone-model-item" (click)="redirect('defect')">
-     <ion-label position="stacked">Other defect</ion-label>
-     <ion-input>
-       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
-     </ion-input>
+   <ion-item class="phone-model-item">
+      <ion-label position="stacked">{{otherDefectLabelText}}</ion-label>
+      <ion-row class="add-defect" (click)="redirect('defect')">
+         <ion-icon  src="../../assets/img/add-defect-icon.svg"></ion-icon>
+         <span>{{defectLabelText}}</span>
+      </ion-row>
    </ion-item>
  </div>
  <ion-row class="enter-button">
-   <ion-button (click)="redirect('pay')" class="bottom-button">Pay</ion-button>
+   <ion-button (click)="redirect('pay')" class="bottom-button">{{payButtonText}}</ion-button>
  </ion-row>
 </ion-content>
 

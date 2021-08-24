@@ -122,6 +122,13 @@ ion-label {
         margin-left: 4vw;
         margin-right: 4vw;
         margin-bottom: -1vw;
+        color: #16181B;
+      }
+    }
+    .get-estimating-opened {
+      color: #FF6B01;
+      ion-icon {
+        color: #FF6B01;
       }
     }
     .get-estimating-element {
@@ -147,82 +154,6 @@ ion-label {
     margin-bottom: 5vw;
   }
 }
-ion-card-content {
-  padding: 0;
-}
-.input-field {
-  width: 100%;
-  margin: auto;
-  --padding-start: 0px;
-}
-.social-login-title {
-  color: #2D2F32;
-  font-size: 3vw;
-  font-weight: 400;
-}
-.cloud-est-button {
-  text-align: center;
-  width: 100%;
-  margin: 5vw 0 5vw 0;
-}
-.cloud-est-button.first {
-  ion-button {
-    width: 90%;
-    height: 17vw;
-    font-size: 5vw;
-    color: white;
-    --background: #16181B;
-    font-weight: normal;
-    --border-radius: 1.5vw;
-    --border-color: #000000;
-    --border-style: solid;
-    --border-width: 1px;
-    --background-activated: none;
-    margin:auto;
-  }
-}
-.cloud-est-button.second {
-  ion-button {
-    width: 90%;
-    height: 17vw;
-    font-size: 5vw;
-    color: #2D2F32;
-    --background: white;
-    font-weight: normal;
-    --border-radius: 1.5vw;
-    --border-color: #000000;
-    --border-style: solid;
-    --border-width: 1px;
-    --background-activated: none;
-    margin: auto;
-  }
-}
-.face-id {
-  width: 100%;
-  margin-top: 10vw;
-  ion-icon {
-    font-size: 13vw;
-    margin: auto;
-  }
-}
-.errorMessage {
-  color: red;
-}
-.agreement {
-  width: 100%;
-  p {
-    width: 80vw;
-    margin: auto;
-    color: #2D2F32;
-    font-family: "SFProDisplay";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 4vw;
-    text-align: center;
-    text-decoration-line: underline;
-  }
-}
-
 .enter-button {
   text-align: center;
   width: 100%;
@@ -238,6 +169,9 @@ ion-card-content {
     font-size: 6vw;
     width: 95%;
     margin:auto;
+    --background-activated-opacity: 1;
+    --background-activated: #FF6B01;
+    --color-activated: white;
   }
 }
 ion-footer {

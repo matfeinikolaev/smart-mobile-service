@@ -1,51 +1,55 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-       <ion-back-button text="Back" icon="chevron-back" defaultHref="home"></ion-back-button>
+       <ion-back-button text="{{backButtonText}}" icon="chevron-back" defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-label>Edit profile</ion-label>
+  <ion-label>{{titleText}}</ion-label>
   <ion-row class="title">
     <div class="image">
-      <img src="../../assets/img/me!.png"/>
-      <ion-icon class="photo-icon" src="../../assets/img/photo.svg"></ion-icon>
+      <img (click)="uploadPhoto()" src="{{data.user.img}}"/>
+      <ion-icon (click)="uploadPhoto()" class="photo-icon" src="../../assets/img/photo.svg"></ion-icon>
     </div>
-    <span class="name">Max Mustermann</span>
+    <br>
+    <div class="name">
+      <span *ngIf="data.user.first_name">{{data.user.first_name}} </span>
+      <span *ngIf="data.user.last_name">{{data.user.last_name}}</span>
+    </div>
   </ion-row>
   <div class="container">
      <ion-item>
-      <ion-label position="stacked">First name</ion-label>
-      <ion-input>
+      <ion-label position="stacked">{{firstNameLabelText}}</ion-label>
+      <ion-input [(ngModel)]="data.user.first_name">
         <ion-icon slot="start" src="../../assets/img/profile-icon.svg"></ion-icon>
         <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
       </ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Last name</ion-label>
-      <ion-input>
+      <ion-label position="stacked">{{lastNameLabelText}}</ion-label>
+      <ion-input [(ngModel)]="data.user.last_name">
         <ion-icon slot="start" src="../../assets/img/profile-icon.svg"></ion-icon>
         <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
       </ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Number phone</ion-label>
-      <ion-input>
+      <ion-label position="stacked">{{phoneNumberLabelText}}</ion-label>
+      <ion-input [(ngModel)]="data.user.phone_number">
         <ion-icon slot="start" src="../../assets/img/phone-icon.svg"></ion-icon>
         <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
       </ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">E-mail</ion-label>
-      <ion-input>
+      <ion-label position="stacked">{{emailLabelText}}</ion-label>
+      <ion-input [(ngModel)]="data.user.email">
         <ion-icon slot="start" src="../../assets/img/mail-icon.svg"></ion-icon>
         <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
       </ion-input>
     </ion-item>
     <ion-item class="phone-model-item">
-      <ion-label position="stacked">Phone's model</ion-label>
+      <ion-label position="stacked">{{phoneModelLabelText}}</ion-label>
       <ion-input>
         <ion-icon slot="start" src="../../assets/img/phone-model-icon.svg"></ion-icon>
         <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
@@ -55,20 +59,23 @@
 
   <div class="container">
      <ion-item (click)="redirect('reports')">
-       <span><ion-icon slot="start" src="../../assets/img/reports-history-icon.svg"></ion-icon>Reports history</span>
+       <span><ion-icon slot="start" src="../../assets/img/reports-history-icon.svg"></ion-icon>{{reportsHistoryButtonText}}</span>
     </ion-item>
     <ion-item (click)="redirect('estimate-phone')">
-      <span><ion-icon slot="start" src="../../assets/img/estimate-phone-icon.svg"></ion-icon>Estimate a phone</span>
+      <span><ion-icon slot="start" src="../../assets/img/estimate-phone-icon.svg"></ion-icon>{{estimatePhoneButtonText}}</span>
     </ion-item>
     <ion-item (click)="redirect('settings')">
-      <span><ion-icon slot="start" src="../../assets/img/settings-icon.svg"></ion-icon>Settings</span>
+      <span><ion-icon slot="start" src="../../assets/img/settings-icon.svg"></ion-icon>{{settingsButtonText}}</span>
     </ion-item>
-    <ion-item class="phone-model-item" (click)="redirect('location')">
-      <span><ion-icon slot="start" src="../../assets/img/location-icon.svg"></ion-icon>Locations</span>
+    <ion-item (click)="redirect('location')">
+      <span><ion-icon slot="start" src="../../assets/img/location-icon.svg"></ion-icon>{{locationsButtonText}}</span>
+    </ion-item>
+    <ion-item class="phone-model-item" (click)="signOut()">
+      <span><ion-icon slot="start" name="log-out-outline"></ion-icon>{{signOutButtonText}}</span>
     </ion-item>
   </div>
   <ion-row class="enter-button">
-    <ion-button (click)="getStarted()" class="bottom-button">Save</ion-button>
+    <ion-button (click)="save()" class="bottom-button">{{saveButtonText}}</ion-button>
   </ion-row>
 </ion-content>
 

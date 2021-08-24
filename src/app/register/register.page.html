@@ -1,48 +1,52 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-       <ion-back-button text="Back" icon="chevron-back" defaultHref="entry"></ion-back-button>
+       <ion-back-button text="{{backButtonText}}" icon="chevron-back" defaultHref="entry"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-label>Register</ion-label>
+  <ion-label>{{titleText}}</ion-label>
   <ion-row class="logo">
     <ion-icon src="../../assets/img/logo.svg"></ion-icon>
   </ion-row>
   <div class="container">
-    <ion-item>
-      <ion-input placeholder="E-mail"></ion-input>
+    <ion-item #emailInput>
+      <ion-input (ionChange)="typing()" [(ngModel)]="email" placeholder="{{emailPlaceholder}}"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input placeholder="Password"></ion-input>
+    <span class="emailErrorMessage" *ngIf="displayEmailError">{{emailErrorMessage}}</span>
+    <ion-item #passwordInput>
+      <ion-input (ionChange)="typing()" type="password" [(ngModel)]="password" placeholder="{{passwordPlaceholder}}"></ion-input>
     </ion-item>
+    <span class="passwordErrorMessage" *ngIf="displayPasswordError">{{passwordErrorMessage}}</span>
     <ion-row>
-      <span class="social-login-title">Or register using social media </span>
+      <span class="social-login-title">{{socialMediaTitle}}</span>
     </ion-row>
     <ion-row class="social-login-row">
       <ion-col>
-        <ion-icon name="logo-google"></ion-icon>
+        <ion-icon name="logo-google" (click)="google()"></ion-icon>
       </ion-col>
       <ion-col>
-        <ion-icon name="logo-apple"></ion-icon>
+        <ion-icon name="logo-apple" (click)="apple()"></ion-icon>
       </ion-col>
       <ion-col>
-        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-facebook" (click)="facebook()"></ion-icon>
       </ion-col>
       <ion-col>
-        <ion-icon name="logo-twitter"></ion-icon>
+        <ion-icon name="logo-twitter" (click)="twitter()"></ion-icon>
       </ion-col>
-    </ion-row>   
+    </ion-row>
   </div>
   <ion-row class="agreement">
-    <ion-col><p>By signing up, you agree to FASTs Terms of Service and Privacy Policy.</p></ion-col>
+    <ion-col><p>{{termsConditionsText}}</p></ion-col>
     <ion-col><div><ion-checkbox mode="md"></ion-checkbox></div></ion-col>
   </ion-row>
-  <span class="errorMessage" *ngIf="displayError">{{errorMessage}}</span>
+  <ion-row class="errorMessage">
+    <span *ngIf="displayError">{{errorMessage}}</span>
+  </ion-row>
   <ion-row class="next-button">
-    <ion-button (click)="next()">Next</ion-button>
+    <ion-button (click)="register()">{{registerButtonText}}</ion-button>
   </ion-row>
   <ion-row class="face-id">
     <ion-icon src="../../assets/img/face-id_white.svg"></ion-icon>

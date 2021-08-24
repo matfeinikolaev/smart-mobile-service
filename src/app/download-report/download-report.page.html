@@ -1,21 +1,21 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-       <ion-back-button text="Back" icon="chevron-back" defaultHref="home"></ion-back-button>
+       <ion-back-button text="{{backButtonText}}" icon="chevron-back" defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-label>Download report</ion-label>
+  <ion-label>{{titleText}}</ion-label>
   
   <div class="container">
-     <ion-label>Report</ion-label>
+     <ion-label>{{labelText}}</ion-label>
      <br>
      <ion-icon src="../../assets/img/download-report-icon.svg"></ion-icon>
  </div>
  <ion-row class="enter-button">
-   <ion-button (click)="save()" class="bottom-button">Save</ion-button>
+   <ion-button (click)="save()" class="bottom-button">{{saveButtonText}}</ion-button>
  </ion-row>
 </ion-content>
 

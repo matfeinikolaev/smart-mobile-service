@@ -72,22 +72,36 @@ ion-label {
   ion-item {
     border-radius: 3vw;
     --padding-start: 0px;
+    --highlight-color-focused: none;
+    --highlight-color-valid: none;
+    ion-select {
+      height: 7vw;
+    }
+    ion-select::part(text) {
+      padding-left: 5vw;
+      font-size: 4vw;
+      color: #797979;
+    }
+    
+    ion-select::part(icon) { 
+      display: none;
+    }
     ion-label {
       margin-left: 5vw;
       color: #16181B;
       font-style: normal;
       font-weight: normal;
-      font-size: 3vw;
+      font-size: 3.5vw;
     }
     ion-input {
       --padding-start: 5vw;
       font-size: 4vw;
       color: #797979;
       ion-icon {
-        color: #16181B;
-        font-size: 5vw;
-        margin-left: 4vw;
-        margin-right: 4vw;
+        // color: #16181B;
+        // font-size: 5vw;
+        // margin-left: 4vw;
+        // margin-right: 4vw;
       }
     }
     span {
@@ -103,88 +117,37 @@ ion-label {
         margin-bottom: -1vw;
       }
     }
+    .add-defect {
+      ion-icon {
+        margin-left: 5vw;
+        margin-top: 3vw;
+        margin-bottom: 3vw;
+        font-size: 6vw;
+      }
+      span {
+        color: #797979;
+        margin-top: 3vw;
+        margin-left: 4vw;
+        font-size: 4vw;
+      }
+    }
+  }
+  .chevron-icon-model {
+    margin-right: 6vw;
+    margin-bottom: 5vw;
+    color: #16181B;
+    font-size: 5vw;
+    position: absolute;
+    right: 0;
   }
   .chevron-icon {
+    color: #16181B;
+    font-size: 5vw;
     position: absolute;
-    right: -3vw;
+    right: 0;
   }
   .phone-model-item {
     margin-bottom: 5vw;
-  }
-}
-ion-card-content {
-  padding: 0;
-}
-.input-field {
-  width: 100%;
-  margin: auto;
-  --padding-start: 0px;
-}
-.social-login-title {
-  color: #2D2F32;
-  font-size: 3vw;
-  font-weight: 400;
-}
-.cloud-est-button {
-  text-align: center;
-  width: 100%;
-  margin: 5vw 0 5vw 0;
-}
-.cloud-est-button.first {
-  ion-button {
-    width: 90%;
-    height: 17vw;
-    font-size: 5vw;
-    color: white;
-    --background: #16181B;
-    font-weight: normal;
-    --border-radius: 1.5vw;
-    --border-color: #000000;
-    --border-style: solid;
-    --border-width: 1px;
-    --background-activated: none;
-    margin:auto;
-  }
-}
-.cloud-est-button.second {
-  ion-button {
-    width: 90%;
-    height: 17vw;
-    font-size: 5vw;
-    color: #2D2F32;
-    --background: white;
-    font-weight: normal;
-    --border-radius: 1.5vw;
-    --border-color: #000000;
-    --border-style: solid;
-    --border-width: 1px;
-    --background-activated: none;
-    margin: auto;
-  }
-}
-.face-id {
-  width: 100%;
-  margin-top: 10vw;
-  ion-icon {
-    font-size: 13vw;
-    margin: auto;
-  }
-}
-.errorMessage {
-  color: red;
-}
-.agreement {
-  width: 100%;
-  p {
-    width: 80vw;
-    margin: auto;
-    color: #2D2F32;
-    font-family: "SFProDisplay";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 4vw;
-    text-align: center;
-    text-decoration-line: underline;
   }
 }
 
@@ -203,6 +166,9 @@ ion-card-content {
     font-size: 6vw;
     width: 95%;
     margin:auto;
+    --background-activated-opacity: 1;
+    --background-activated: #FF6B01;
+    --color-activated: white;
   }
 }
 ion-footer {

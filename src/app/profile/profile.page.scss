@@ -58,14 +58,14 @@ ion-label {
       right: 0px;
     }
   }
-  span {
+  // span {
+  // }
+  .name {
     width: 80vw;
     text-align: center;
     font-family: "SFProDisplay";
     color: #16181B;
     margin: auto;
-  }
-  .name {
     font-size: 6vw;
     font-weight: 600;
   }
@@ -92,7 +92,10 @@ ion-label {
   ion-item {
     border-radius: 3vw;
     --padding-start: 0px;
+    --highlight-color-focused: none;
+    --highlight-color-valid: none;
     ion-label {
+      margin-left: 6vw;
       color: #797979;
       font-style: normal;
       font-weight: normal;
@@ -145,6 +148,10 @@ ion-label {
     font-size: 6vw;
     width: 95%;
     margin:auto;
+    
+    --background-activated-opacity: 1;
+    --background-activated: #FF6B01;
+    --color-activated: white;
   }
 }
 ion-footer {

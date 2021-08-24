@@ -5,7 +5,7 @@
   <ion-slides mode="ios" pager="true" [options]="slideOpts">
     <ion-slide>
       <ion-row class="title">
-        <p>This service helps to quickly generate and download an insurance report</p>
+        <p>{{firstTitle}}</p>
       </ion-row>
       <ion-row class="image">
         <ion-icon src="../../assets/img/get-started-first.svg"></ion-icon>
@@ -13,7 +13,7 @@
     </ion-slide>
     <ion-slide>
       <ion-row class="title">
-        <p>Easily generate a report and download it directly to your smartphone</p>
+        <p>{{secondTitle}}</p>
       </ion-row>
       <ion-row class="image">
         <ion-icon src="../../assets/img/get-started-second.svg"></ion-icon>
@@ -21,7 +21,7 @@
     </ion-slide>
     <ion-slide>
       <ion-row class="title">
-        <p>Easily find a branch of an insurance company</p>
+        <p>{{thirdTitle}}</p>
       </ion-row>
       <ion-row class="image">
         <ion-icon src="../../assets/img/get-started-third.svg"></ion-icon>
@@ -29,7 +29,7 @@
     </ion-slide>
     <ion-slide>
       <ion-row class="title">
-        <p>Smart Mobile Services, fast solutions  for telephone problems</p>
+        <p>{{fourthTitle}}</p>
       </ion-row>
       <ion-row class="image">
         <ion-icon src="../../assets/img/get-started-fourth.svg"></ion-icon>
@@ -38,6 +38,6 @@
   </ion-slides>
   
   <ion-row class="enter-button">
-    <ion-button (click)="getStarted()" class="bottom-button">Get started</ion-button>
+    <ion-button (click)="getStarted()" class="bottom-button">{{getStartedButtonText}}</ion-button>
   </ion-row>
 </ion-content>

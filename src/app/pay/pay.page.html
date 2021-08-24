@@ -1,64 +1,58 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-       <ion-back-button text="Back" icon="chevron-back" defaultHref="home"></ion-back-button>
+       <ion-back-button text="{{backButtonText}}" icon="chevron-back" defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-label>Pay</ion-label>
-  <p>Select your preffered payment method</p>
-  <ion-row>
+  <ion-label *ngIf="!displayCard">{{titleText}}</ion-label>
+  <p *ngIf="!displayCard">{{selectMethodText}}</p>
+  <ion-row *ngIf="!displayCard">
     <ion-col>
-      <ion-button class="active">Credit Card</ion-button>
+      <ion-button #cardButton (click)="choosePaymentMethod(0)">{{creditCardText}}</ion-button>
     </ion-col>
     <ion-col>
-      <ion-button>PayPal</ion-button>
+      <ion-button #paypalButton (click)="choosePaymentMethod(1)">{{paypalText}}</ion-button>
     </ion-col>
   </ion-row>
 
-  <ion-label>Add card</ion-label>
-  <div class="add-card">
-     <ion-item>
-      <ion-label position="stacked">First name</ion-label>
-      <ion-input>
-        <ion-icon slot="start" src="../../assets/img/profile-icon.svg"></ion-icon>
-        <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Last name</ion-label>
-      <ion-input>
-        <ion-icon slot="start" src="../../assets/img/profile-icon.svg"></ion-icon>
-        <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Number phone</ion-label>
-      <ion-input>
-        <ion-icon slot="start" src="../../assets/img/phone-icon.svg"></ion-icon>
-        <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">E-mail</ion-label>
-      <ion-input>
-        <ion-icon slot="start" src="../../assets/img/mail-icon.svg"></ion-icon>
-        <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item class="phone-model-item">
-      <ion-label position="stacked">Phone's model</ion-label>
-      <ion-input>
-        <ion-icon slot="start" src="../../assets/img/phone-model-icon.svg"></ion-icon>
-        <ion-icon class="pencil-icon" slot="end" src="../../assets/img/pencil-icon.svg"></ion-icon>
-      </ion-input>
-    </ion-item>
+  <ion-label *ngIf="displayCard">{{addCardText}}</ion-label>
+  <div class="add-card" *ngIf="displayCard">
+    <ion-row>
+      <h1>BANK NAME</h1>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input #number1 type="tel" inputmode="numerical" pattern="\d*"  maxlength="4" [(ngModel)]="cardNumber[0]" (ionChange)="cardNumberEntered(0, number2)"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input #number2 type="tel" inputmode="numerical" pattern="\d*" maxlength="4" [(ngModel)]="cardNumber[1]" (ionChange)="cardNumberEntered(1, number3)"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input #number3 type="tel" inputmode="numerical" pattern="\d*" maxlength="4" [(ngModel)]="cardNumber[2]" (ionChange)="cardNumberEntered(2, number4)"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input #number4 type="tel" inputmode="numerical" pattern="\d*" maxlength="4" [(ngModel)]="cardNumber[3]" (ionChange)="cardNumberEntered(3)"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row class="bottom-row">
+      <ion-col>
+        <ion-input placeholder="Full name"></ion-input>
+      </ion-col>
+      <ion-col size="4" class="date-column"> 
+        <ion-datetime displayFormat="MM/YYYY" placeholder="MM/YY"></ion-datetime>
+      </ion-col>
+    </ion-row>
   </div>
  <ion-row class="enter-button">
-   <ion-button (click)="continue()" class="bottom-button">Continue</ion-button>
+   <ion-button (click)="continue()" class="bottom-button">{{continueButtonText}}</ion-button>
  </ion-row>
+ 
+  <ion-row (click)="backToPaymentMethods()" *ngIf="displayCard" class="back-to-methods">
+    <span>{{backToMethodsText}}</span>
+  </ion-row>
 </ion-content>
 
 <ion-footer>

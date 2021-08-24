@@ -70,12 +70,12 @@ ion-label {
     margin: auto;
   }
 }
-.cloud-est-button {
+.cost-est-button {
   text-align: center;
   width: 100%;
   margin: 5vw 0 5vw 0;
 }
-.cloud-est-button.first {
+.cost-est-button.first {
   ion-button {
     width: 90%;
     height: 17vw;
@@ -84,14 +84,14 @@ ion-label {
     --background: #16181B;
     font-weight: normal;
     --border-radius: 1.5vw;
-    --border-color: #000000;
-    --border-style: solid;
-    --border-width: 1px;
-    --background-activated: none;
+    --background-activated-opacity: 1;
+    --background-activated: #FF6B01;
+    --color-activated: white;
     margin:auto;
+    text-transform: none;
   }
 }
-.cloud-est-button.second {
+.cost-est-button.second {
   ion-button {
     width: 90%;
     height: 17vw;
@@ -103,8 +103,11 @@ ion-label {
     --border-color: #000000;
     --border-style: solid;
     --border-width: 1px;
-    --background-activated: none;
+    --background-activated-opacity: 1;
+    --background-activated: #FF6B01;
+    --color-activated: white;
     margin: auto;
+    text-transform: none;
   }
 }
 

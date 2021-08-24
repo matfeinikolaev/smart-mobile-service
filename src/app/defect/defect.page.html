@@ -1,51 +1,41 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-       <ion-back-button text="Back" icon="chevron-back" defaultHref="home"></ion-back-button>
+       <ion-back-button text="{{backButtonText}}" icon="chevron-back" defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-label>Defect</ion-label>
+  <ion-label>{{titleText}}</ion-label>
   
   <div class="container">
-     <ion-label>Please, describe your  phone’s defect</ion-label>
-     <ion-textarea placeholder="Text..."></ion-textarea>
+     <ion-label>{{textAreaLabelText}}</ion-label>
+     <ion-textarea placeholder="{{placeholderText}}" [(ngModel)]="defect"></ion-textarea>
  </div>
  <ion-row class="enter-button">
-   <ion-button (click)="getStarted()" class="bottom-button">Save</ion-button>
+   <ion-button (click)="save()" class="bottom-button">{{saveButtonText}}</ion-button>
  </ion-row>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
     <ion-row>
-    <!-- <ion-buttons class="home-button-center"> -->
       <ion-col>
         <ion-icon (click)="redirect('home')" src="../../assets/img/home-icon.svg"></ion-icon>
       </ion-col>
-    <!--</ion-buttons>-->
-    <!-- <ion-buttons class="home-button"> -->
       <ion-col>
         <ion-icon (click)="redirect('location')" src="../../assets/img/location-icon.svg"></ion-icon>
       </ion-col>
-    <!--</ion-buttons>-->
-    <!--<ion-buttons class="offers-button">-->
       <ion-col>
         <ion-icon (click)="redirect('add-report')" class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
       </ion-col>
-    <!--</ion-buttons>-->
-    <!--<ion-buttons class="offers-button">-->
       <ion-col>
         <ion-icon (click)="redirect('reports')" src="../../assets/img/reports-icon.svg"></ion-icon>
       </ion-col>
-    <!--</ion-buttons>-->
-    <!--<ion-buttons class="offers-button">-->
       <ion-col>
         <ion-icon (click)="redirect('profile')" src="../../assets/img/profile-icon.svg"></ion-icon>
       </ion-col>
-    <!--</ion-buttons>-->
     </ion-row>
   </ion-toolbar>
 </ion-footer>

@@ -14,10 +14,44 @@ export class HomePage {
   password: any;
   errorMessage: any;
   displayError: boolean = false;
+  backButtonText: string;
+  titleText: string;
+  costEstimateButtonText: string;
   constructor(private navCtrl: NavController, public data: Data, public config: Config) {
 
   }
   ngOnInit() {}
+  ionViewDidEnter() {
+    this.fetchData();
+    this.setStringsToLanguage();
+  }
+  fetchData() {
+    this.data = JSON.parse(window.localStorage.getItem("data"));
+  }
+  setStringsToLanguage() {
+    switch(this.data.settings.language) {
+      case "en": 
+        this.titleText = "Welcome";
+        this.backButtonText = "Back";
+        this.costEstimateButtonText = "Cost Estimate";
+        break;
+      case "ge":
+        this.titleText = "Willkommen";
+        this.backButtonText = "Zurück";
+        this.costEstimateButtonText = "Kostenschätzung";
+        break;
+      case "ru":
+        this.titleText = "Добро пожаловать";
+        this.backButtonText = "Назад";
+        this.costEstimateButtonText = "Оценка стоимости";
+        break;
+      default: 
+        this.titleText = "Welcome";
+        this.backButtonText = "Back";
+        this.costEstimateButtonText = "Cost Estimate";
+      break;
+    }
+  }
   ionViewDidLeave() {
     this.config.set('animated', false);
   }
