@@ -17,9 +17,7 @@ export class HomePage {
   backButtonText: string;
   titleText: string;
   costEstimateButtonText: string;
-  constructor(private navCtrl: NavController, public data: Data, public config: Config) {
-
-  }
+  constructor(private navCtrl: NavController, public data: Data, public config: Config) {}
   ngOnInit() {}
   ionViewDidEnter() {
     this.fetchData();
