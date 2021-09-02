@@ -35,7 +35,14 @@ export class RegisterPage {
   }
   ngOnInit() {}
   ionViewDidEnter() {
+    this.fetchData();
     this.setStringsToLanguage();
+  }
+  fetchData() {
+    if (window.localStorage.getItem("data")) {
+      this.data = JSON.parse(window.localStorage.getItem("data"));
+    }
+    console.log(this.data);
   }
   setStringsToLanguage() {
     switch(this.data.settings.language) {
@@ -103,16 +110,15 @@ export class RegisterPage {
   }
   register() {
     this.angularFireAuth.createUserWithEmailAndPassword(this.email, this.password).then(res => {
-      this.saveData(res.additionalUserInfo.profile);
+      this.saveData(res.user);
     }, err => console.error(err));
   }
   saveData(loginData) {
     var data = {
       email: loginData.email,
-      first_name: loginData.given_name,
-      last_name: loginData.family_name,
-      img: loginData.picture,
-      uid: loginData.id,
+      display_name: loginData.display_name,
+      img: loginData.photoUrl,
+      uid: loginData.uid,
     }
     const ref = this.angularFirestore.collection("users").doc(loginData.id);
     ref.get().subscribe(obs => {
@@ -136,7 +142,7 @@ export class RegisterPage {
   }
   signInWithPopup(provider) {
     this.angularFireAuth.signInWithPopup(provider).then(res => {
-      this.saveData(res.additionalUserInfo.profile);
+      this.saveData(res.user);
     }, err => {
       console.error(JSON.stringify(err));
     });

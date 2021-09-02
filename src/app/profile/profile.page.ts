@@ -5,6 +5,8 @@ import { Config } from '@ionic/angular';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFireStorage } from "@angular/fire/storage";
+import { Crop } from '@ionic-native/crop/ngx';
 
 @Component({
   selector: 'app-profile',
@@ -29,7 +31,20 @@ export class ProfilePage {
   locationsButtonText: string;
   signOutButtonText: string;
   saveButtonText: string;
-  constructor(private navCtrl: NavController, public data: Data, public config: Config, private imagePicker: ImagePicker, private angularFireAuth: AngularFireAuth, private angularFirestore: AngularFirestore) {
+  photos: any;
+  imageresult: any;
+  imageIndex: any = 0;
+  imageArray: any = [];
+  constructor(
+    private navCtrl: NavController, 
+    public data: Data,
+    public config: Config,
+    private imagePicker: ImagePicker,
+    private angularFireAuth: AngularFireAuth,
+    private angularFirestore: AngularFirestore,
+    private angularFireStorage: AngularFireStorage,
+    private crop: Crop,
+    ) {
 
   }
   ngOnInit() {}
@@ -122,19 +137,78 @@ export class ProfilePage {
     this.data.user.isLoggedin = true;
     window.localStorage.setItem("data", JSON.stringify(this.data));
   }
+
+
+
+
+
+
+
+
+
   uploadPhoto() {
     let options= {
       maximumImagesCount: 1,
     }
+    this.photos = new Array < string > ();
     this.imagePicker.getPictures(options).then((results) => {
-      alert(JSON.stringify(results));
-      for (var i = 0; i < results.length; i++) {
-        alert('Image URI: ' + results[i]);
-      }
+      this.reduceImages(results).then((results) => this.upload());
     }, (err) => alert("Error: " + JSON.stringify(err)));
   }
+
+  reduceImages(selected_pictures: any): any {
+    return selected_pictures.reduce((promise: any, item: any) => {
+        return promise.then((result) => {
+            return this.crop.crop(item, {
+                      quality: 75,
+                      targetHeight: 100,
+                      targetWidth: 100
+                    }).then(
+                      cropped_image => {
+                        this.photos = cropped_image;
+                        alert(JSON.stringify(this.photos));
+                      }, err => alert(JSON.stringify(err))
+                    );
+            });
+    }, Promise.resolve());
+  }
+  upload() {
+    this.angularFireStorage.upload(`users/${this.data.user.uid}/`, this.photos)
+    // const fileTransfer: FileTransferObject = this.transfer.create();
+    // var headers = new Headers();
+    // headers.append('Content-Type', 'multipart/form-data');
+    // let options: FileUploadOptions = {
+    //     fileKey: 'file',
+    //     fileName: 'name.jpg',
+    //     headers: {
+    //         headers
+    //     }
+    // }
+    // fileTransfer.upload(this.photos, "url", options).then((data) => {
+    //     this.imageresult = JSON.parse(data.response);
+    //     this.imageIndex = this.imageIndex + 1;
+    //     // success
+    // }, (err) => {
+    //     alert(JSON.stringify(err));
+    // })
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
   signOut() {
     this.angularFireAuth.signOut().then(res => {
+      this.data.user.isLoggedin = false;
+      window.localStorage.setItem("data", JSON.stringify(this.data));
       this.navCtrl.navigateRoot("entry");
     })
   }

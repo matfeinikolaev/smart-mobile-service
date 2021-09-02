@@ -10,7 +10,8 @@
   <ion-label>{{titleText}}</ion-label>
   <ion-row class="title">
     <div class="image">
-      <img (click)="uploadPhoto()" src="{{data.user.img}}"/>
+      <img (click)="uploadPhoto()" *ngIf="data.user.img != ''" src="{{data.user.img}}"/>
+      <ion-icon (click)="uploadPhoto()" class="default-pic" *ngIf="data.user.img == ''" name="person-circle-sharp"></ion-icon>
       <ion-icon (click)="uploadPhoto()" class="photo-icon" src="../../assets/img/photo.svg"></ion-icon>
     </div>
     <br>

@@ -25,18 +25,24 @@ export class AddReportPage {
   otherDefectLabelText: string;
   payButtonText: string;
   backButtonText: string;
+  compareWith : any;
   constructor(private navCtrl: NavController, public data: Data, public config: Config, private device: Device, private extendedDeviceInformation: ExtendedDeviceInformation) {
     // this.data.mobileData.volumeMemory = cordova.plugins['extended-device-information'].memory;
     this.data.mobileData.serialNumber = this.device.serial;
     this.data.mobileData.phoneModel = this.device.model;
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.compareWith = this.compareWithFn;
+  }
   ionViewDidEnter() {
     this.fetchData();
     this.setStringsToLanguage();
   }
   fetchData() {
     this.data = JSON.parse(window.localStorage.getItem("data"));
+  }
+  compareWithFn(o1, o2) {
+    return true;
   }
   setStringsToLanguage() {
     switch(this.data.settings.language) {
@@ -86,6 +92,7 @@ export class AddReportPage {
     this.config.set('animated', false);
   }
   redirect(page) {
+    window.localStorage.setItem("data", JSON.stringify(this.data));
     this.navCtrl.navigateForward(page, {animated: false});
   }
 }

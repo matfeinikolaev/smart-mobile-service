@@ -13,30 +13,53 @@
     <ion-item>
      <ion-label position="stacked">{{modelLabelText}}</ion-label>
      <ion-select [(ngModel)]="data.mobileData.phoneModel">
-       <ion-select-option value="xs">iPhone XS</ion-select-option>
-       <ion-select-option value="xs-mas">iPhone XS Max</ion-select-option>
+       <ion-select-option value="i3g/3gs">iPhone 3G/3GS</ion-select-option>
+       <ion-select-option value="i4">iPhone 4</ion-select-option>
+       <ion-select-option value="i4s">iPhone 4S</ion-select-option>
+       <ion-select-option value="i5">iPhone 5</ion-select-option>
+
+       <ion-select-option value="i5c">iPhone 5C</ion-select-option>
+       <ion-select-option value="i5s">iPhone 5S</ion-select-option>
+       <ion-select-option value="ise">iPhone SE</ion-select-option>
+
+       <ion-select-option value="i6">iPhone 6</ion-select-option>
+       <ion-select-option value="i6+">iPhone 6Plus</ion-select-option>
+       <ion-select-option value="i6s">iPhone 6S</ion-select-option>
+       <ion-select-option value="i6s+">iPhone 6S Plus</ion-select-option>
+       <ion-select-option value="i7">iPhone 7</ion-select-option>
+       <ion-select-option value="i7+">iPhone 7 Plus</ion-select-option>
+       <ion-select-option value="i8">iPhone 8</ion-select-option>
+       <ion-select-option value="i8+">iPhone 8 Plus</ion-select-option>
+       <ion-select-option value="ix">iPhone X</ion-select-option>
+       <ion-select-option value="ixr">iPhone XR</ion-select-option>
+       <ion-select-option value="ixs">iPhone XS</ion-select-option>
+       <ion-select-option value="ixs-max">iPhone XS Max</ion-select-option>
      </ion-select>
      <ion-icon class="chevron-icon-model" style="top:45%" slot="end" name="chevron-forward-sharp"></ion-icon>
-     <!-- <ion-input>
-       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
-     </ion-input> -->
    </ion-item>
    <ion-item>
      <ion-label position="stacked">{{volumeMemoryLabelText}}</ion-label>
-     <ion-input [(ngModel)]="data.mobileData.volumeMemory">
-       <!-- <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon> -->
-     </ion-input>
+     <ion-select [(ngModel)]="data.mobileData.volumeMemory">
+       <ion-select-option value="16">16GB</ion-select-option>
+       <ion-select-option value="32">32GB</ion-select-option>
+       <ion-select-option value="64">64GB</ion-select-option>
+       <ion-select-option value="128">128GB</ion-select-option>
+       <ion-select-option value="256">256GB</ion-select-option>
+     </ion-select>
    </ion-item>
    <ion-item>
-     <ion-label position="stacked">{{defectLabelText}}</ion-label>     
-     <ion-select [(ngModel)]="data.mobileData.defect">
-       <ion-select-option *ngFor="let defect of data.user.defects" value="defect">{{defect}}</ion-select-option>
+     <ion-label position="stacked">{{defectLabelText}}</ion-label>
+     <div class="redirect-to-defect-button" *ngIf="data.user.defects?.length == 0 || !data.user.defects" (click)="redirect('defect')"></div>
+     <ion-select [(ngModel)]="data.mobileData.defect" *ngIf="data.user.defects?.length > 1">
+       <ion-select-option *ngFor="let defect of data.user.defects" value="{{defect}}">{{defect}}</ion-select-option>
+     </ion-select>
+     <ion-select [compareWith]="compareWith" [(ngModel)]="data.mobileData.defect" value="{{data.user.defects[0]}}" *ngIf="data.user.defects?.length == 1">
+       <ion-select-option value="{{data.user.defects[0]}}">{{data.user.defects[0]}}</ion-select-option>
      </ion-select>
    </ion-item>
    <ion-item>
      <ion-label position="stacked">{{serialNumberLabelText}}</ion-label>
      <ion-input [(ngModel)]="data.mobileData.serialNumber">
-       <!-- <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon> -->
      </ion-input>
    </ion-item>
    <ion-item class="phone-model-item">

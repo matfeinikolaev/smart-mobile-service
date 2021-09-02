@@ -25,9 +25,10 @@ export class EntryPage {
     this.setStringsToLanguage();
   }
   fetchData() {
-    if(!this.data.user.uid) {
+    if (window.localStorage.getItem("data")) {
       this.data = JSON.parse(window.localStorage.getItem("data"));
     }
+    console.log(this.data);
   }
   setStringsToLanguage() {
     switch(this.data.settings.language) {
@@ -46,11 +47,16 @@ export class EntryPage {
         this.loginButtonText = "Войти";
         this.registerButtonText = "Зарегистрироваться";
         break;
+      case null:
+        this.titleText = "Smart Mobile Service"; 
+        this.loginButtonText = "Login";
+        this.registerButtonText = "Register";
+        break;
       default: 
         this.titleText = "Smart Mobile Service"; 
         this.loginButtonText = "Login";
         this.registerButtonText = "Register";
-      break;
+        break;
     }
   }
   redirect(page) {

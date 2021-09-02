@@ -13,8 +13,14 @@ import { ExtendedDeviceInformation } from '@ionic-native/extended-device-informa
 import { Device } from '@ionic-native/device/ngx';
 import { BatteryStatus } from '@ionic-native/battery-status/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { Facebook } from '@ionic-native/facebook/ngx';
+import { TwitterConnect } from '@ionic-native/twitter-connect/ngx';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+import { File } from '@ionic-native/File/ngx';
+import { Crop } from '@ionic-native/crop/ngx';
+
 const fbconfig = {
   apiKey: 'AIzaSyB5YkQuxOVIrG2YTDOCE9WqqXnttxFUVjQ',
   authDomain: 'smart-mobile-service-fast.firebaseapp.com',
@@ -22,6 +28,7 @@ const fbconfig = {
   projectId: 'smart-mobile-service-fast',
   messagingSenderId: "111576881427",
   appId: "1:111576881427:android:c823e4f13f9c087dd562e6",
+  storageBucket: 'gs://smart-mobile-service-fast.appspot.com',
 };
 @NgModule({
   declarations: [AppComponent],
@@ -42,6 +49,11 @@ const fbconfig = {
     Device,
     BatteryStatus,
     GooglePlus,
+    Facebook,
+    TwitterConnect,
+    NativeGeocoder,
+    File,
+    Crop,
   ],
   bootstrap: [AppComponent],
 })

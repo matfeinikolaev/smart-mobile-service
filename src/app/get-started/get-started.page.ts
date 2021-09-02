@@ -7,6 +7,7 @@ import { Data } from '../data/data';
   styleUrls: ['get-started.page.scss'],
 })
 export class GetStartedPage {
+  displayContent: boolean = false;
   firstTitle: string;
   secondTitle: string;
   thirdTitle: string;
@@ -19,8 +20,17 @@ export class GetStartedPage {
     this.setStringsToLanguage();
   }
   fetchData() {
-    if(!this.data.user.uid) {
+    if (window.localStorage.getItem("data")) {
       this.data = JSON.parse(window.localStorage.getItem("data"));
+    }
+    this.checkUser();
+  }
+  checkUser() {
+    if (this.data?.user?.isLoggedin) {
+      this.navCtrl.navigateRoot("home");
+    } else {
+      this.displayContent = true;
+      if (!this.data.settings?.language) this.data.settings.language = "en";
     }
   }
   setStringsToLanguage() {

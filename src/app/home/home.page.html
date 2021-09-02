@@ -9,9 +9,11 @@
 <ion-content [fullscreen]="true">
   <ion-label>{{titleText}}</ion-label>
   <ion-row class="title">
-    <img src="{{data.user.img}}"/>
-    <span class="name">{{data.user.first_name}}</span>
-    <span class="location">Pforzheim, de</span>
+    <img *ngIf="data.user.img != ''" src="{{data.user.img}}"/>
+    <ion-icon style="font-size: 50vw; color: #16181B" *ngIf="data.user.img == ''" name="person-circle-sharp"></ion-icon>
+    <span class="name" *ngIf="data.user.first_name || data.user.last_name">{{data.user.first_name}} {{data.user.last_name}}</span>
+    <span class="name" *ngIf="!data.user.first_name && !data.user.last_name && data.user.display_name">{{data.user.display_name}}</span>
+    <span class="location" *ngIf="data.user.location != null">{{data.user.location.locality}}, {{data.user.location.countryCode}}</span>
   </ion-row>
   <div id="container">
     <span class="errorMessage" *ngIf="displayError">{{errorMessage}}</span>

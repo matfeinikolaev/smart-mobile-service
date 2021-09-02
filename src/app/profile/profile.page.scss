@@ -46,9 +46,16 @@ ion-label {
     img {
       width: 40vw;
       height: 40vw;
-      object-fit:cover ;
+      object-fit: cover;
       margin: auto;
       border-radius: 50%;
+    }
+    .default-pic {
+      width: 40vw;
+      height: 40vw;
+      margin: auto;
+      object-fit: cover;
+      color: #16181B
     }
     .photo-icon {
       width: 9vw;

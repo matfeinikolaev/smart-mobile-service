@@ -40,9 +40,7 @@ export class PayPage {
     this.setStringsToLanguage();
   }
   fetchData() {
-    if(!this.data.user.uid) {
-      this.data = JSON.parse(window.localStorage.getItem("data"));
-    }
+    this.data = JSON.parse(window.localStorage.getItem("data"));
   }
   setStringsToLanguage() {
     switch(this.data.settings.language) {
@@ -124,10 +122,19 @@ export class PayPage {
     } else if (this.paymentType == "paypal" && !this.displayCard) {
 
     } else if (this.displayCard) {
-      this.data.mobileData.defect = JSON.stringify(this.data.mobileData.defect);
       const ref = this.angularFirestore.collection("users").doc(this.data.user.uid);
-      var newData = {...this.data.user, ...{devices: [this.data.mobileData]}};
-      ref.set(newData).then(() => this.goToReport());
+      ref.get().subscribe(obs => {
+        var data: any = obs.data();
+        var reports: any = data.reports;
+        if (reports) {
+          reports.push(this.data.mobileData);
+        } else {
+          reports = Array(this.data.mobileData);
+        }
+        ref.update({
+          reports: reports
+        }).then(() => this.goToReport());
+      })
     }
   }
   goToReport() {
