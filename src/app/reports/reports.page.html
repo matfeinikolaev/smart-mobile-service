@@ -9,22 +9,8 @@
 <ion-content [fullscreen]="true">
   <ion-label>{{titleText}}</ion-label>
   <div class="container">
-    <ion-item>
-      <span><ion-icon slot="start" src="../../assets/img/download-report-small-icon.svg"></ion-icon>Defect report</span>
-      <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
-    </ion-item>
-    <ion-item class="last-item">
-      <span><ion-icon slot="start" src="../../assets/img/download-report-small-icon.svg"></ion-icon>Defect report</span>
-      <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
-    </ion-item>
-  </div>
-  <div class="container">
-    <ion-item>
-      <span><ion-icon slot="start" src="../../assets/img/download-report-small-icon.svg"></ion-icon>Estimate report</span>
-      <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
-    </ion-item>
-    <ion-item class="last-item">
-      <span><ion-icon slot="start" src="../../assets/img/download-report-small-icon.svg"></ion-icon>Estimate report</span>
+    <ion-item *ngFor="let report of data.user.reports" (click)="downloadReport(report)">
+      <span><ion-icon slot="start" src="../../assets/img/download-report-small-icon.svg"></ion-icon>{{report.defect}}</span>
       <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
     </ion-item>
   </div>
@@ -36,20 +22,20 @@
 <ion-footer>
   <ion-toolbar>
     <ion-row>
-      <ion-col>
-        <ion-icon (click)="redirect('home')" src="../../assets/img/home-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('home')">
+        <ion-icon src="../../assets/img/home-icon.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('location')" src="../../assets/img/location-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('location')">
+        <ion-icon src="../../assets/img/location-icon.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('add-report')" class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
+      <ion-col (click)="redirect('add-report')">
+        <ion-icon class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
       </ion-col>
       <ion-col>
         <ion-icon src="../../assets/img/reports-icon-chosen.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('profile')" src="../../assets/img/profile-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('profile')">
+        <ion-icon src="../../assets/img/profile-icon.svg"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-toolbar>

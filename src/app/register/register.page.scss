@@ -192,5 +192,9 @@ ion-label {
         --border-color-checked: #16181B;
       }
     }
+    .highlightError {
+      --background: #FF6B01;
+      color: #FF6B01;
+    }
   }
 }

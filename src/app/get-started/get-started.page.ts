@@ -14,7 +14,10 @@ export class GetStartedPage {
   fourthTitle: string;
   getStartedButtonText: string;
   slideOpts: any = {};
-  constructor(private navCtrl: NavController, private data: Data) {    }
+  constructor(
+    private navCtrl: NavController, 
+    private data: Data
+    ) {}
   ionViewDidEnter() {
     this.fetchData();
     this.setStringsToLanguage();

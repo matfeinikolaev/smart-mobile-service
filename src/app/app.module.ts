@@ -15,11 +15,19 @@ import { BatteryStatus } from '@ionic-native/battery-status/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { TwitterConnect } from '@ionic-native/twitter-connect/ngx';
+import { SignInWithApple } from '@ionic-native/sign-in-with-apple/ngx';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
-import { File } from '@ionic-native/File/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { Crop } from '@ionic-native/crop/ngx';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { PayPal } from '@ionic-native/paypal/ngx';
+import { Stripe } from '@ionic-native/stripe/ngx';
+import { Admob } from '@ionic-native/admob';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 const fbconfig = {
   apiKey: 'AIzaSyB5YkQuxOVIrG2YTDOCE9WqqXnttxFUVjQ',
@@ -39,6 +47,7 @@ const fbconfig = {
     AppRoutingModule,
     AngularFireModule.initializeApp(fbconfig),
     AngularFirestoreModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -51,9 +60,16 @@ const fbconfig = {
     GooglePlus,
     Facebook,
     TwitterConnect,
+    SignInWithApple,
     NativeGeocoder,
     File,
+    FileOpener,
     Crop,
+    HttpClient,
+    PayPal,
+    Stripe,
+    WebView,
+    InAppBrowser,
   ],
   bootstrap: [AppComponent],
 })

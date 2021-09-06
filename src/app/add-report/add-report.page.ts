@@ -4,6 +4,8 @@ import { Data } from '../data/data';
 import { Config } from '@ionic/angular';
 import { ExtendedDeviceInformation } from '@ionic-native/extended-device-information/ngx';
 import { Device } from '@ionic-native/device/ngx';
+import { HttpClient } from '@angular/common/http';
+import { AngularFirestore } from "@angular/fire/firestore";
 // declare var cordova: any;
 @Component({
   selector: 'app-add-report',
@@ -26,20 +28,40 @@ export class AddReportPage {
   payButtonText: string;
   backButtonText: string;
   compareWith : any;
-  constructor(private navCtrl: NavController, public data: Data, public config: Config, private device: Device, private extendedDeviceInformation: ExtendedDeviceInformation) {
+  allDefectsList: any = {};
+  chosenDeviceDefects: any = [];
+  constructor(
+    private navCtrl: NavController, 
+    public data: Data, 
+    public config: Config, 
+    private device: Device, 
+    private extendedDeviceInformation: ExtendedDeviceInformation,
+    private httpClient: HttpClient,
+    private angularFirestore: AngularFirestore,
+    ) {
     // this.data.mobileData.volumeMemory = cordova.plugins['extended-device-information'].memory;
     this.data.mobileData.serialNumber = this.device.serial;
     this.data.mobileData.phoneModel = this.device.model;
   }
   ngOnInit() {
+    this.httpClient.get("../../assets/pricelist.json").subscribe(obs => {
+      this.allDefectsList = obs;
+    });
     this.compareWith = this.compareWithFn;
+  }
+  setDefect() {
+    this.chosenDeviceDefects = this.allDefectsList[this.data.mobileData.phoneModel][this.data.settings.language];
   }
   ionViewDidEnter() {
     this.fetchData();
     this.setStringsToLanguage();
   }
+
   fetchData() {
     this.data = JSON.parse(window.localStorage.getItem("data"));
+    this.angularFirestore.collection("users").doc(this.data.user.uid).ref.get().then(res => {
+      this.data.user = res.data();
+    })
   }
   compareWithFn(o1, o2) {
     return true;

@@ -54,20 +54,20 @@
 <ion-footer>
   <ion-toolbar>
     <ion-row>
-      <ion-col>
-        <ion-icon (click)="redirect('home')" src="../../assets/img/home-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('home')">
+        <ion-icon src="../../assets/img/home-icon.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('location')" src="../../assets/img/location-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('location')">
+        <ion-icon src="../../assets/img/location-icon.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('add-report')" class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
+      <ion-col (click)="redirect('add-report')">
+        <ion-icon class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('reports')" src="../../assets/img/reports-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('reports')">
+        <ion-icon src="../../assets/img/reports-icon.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('profile')" src="../../assets/img/profile-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('profile')">
+        <ion-icon src="../../assets/img/profile-icon.svg"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-toolbar>

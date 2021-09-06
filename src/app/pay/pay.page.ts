@@ -3,6 +3,8 @@ import { NavController } from '@ionic/angular';
 import { Data } from '../data/data';
 import { Config } from '@ionic/angular';
 import { AngularFirestore } from "@angular/fire/firestore";
+import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
+import { Stripe } from '@ionic-native/stripe/ngx';
 
 @Component({
   selector: 'app-pay',
@@ -27,14 +29,26 @@ export class PayPage {
   addCardText: string;
   continueButtonText: string;
   backToMethodsText: string;
+  currentYear: any;
+  maximumYear: any;
   @ViewChild("cardButton") cardButton;
   @ViewChild("paypalButton") paypalButton;
   @ViewChild("number1") number1;
   @ViewChild("number2") number2;
   @ViewChild("number3") number3;
   @ViewChild("number4") number4;
-  constructor(private navCtrl: NavController, public data: Data, public config: Config, private angularFirestore: AngularFirestore) {}
-  ngOnInit() {}
+  constructor(
+    private navCtrl: NavController, 
+    public data: Data, 
+    public config: Config, 
+    private angularFirestore: AngularFirestore,
+    private payPal: PayPal,
+    private stripe: Stripe,
+    ) {}
+  ngOnInit() {
+    this.currentYear = (new Date()).getFullYear();
+    this.maximumYear = this.currentYear + 100;
+  }
   ionViewDidEnter() {
     this.fetchData();
     this.setStringsToLanguage();
@@ -97,14 +111,14 @@ export class PayPage {
     }
   }
   choosePaymentMethod(method) {
-    method ? this.paypal() : this.card();
+    method ? this.choosePaypal() : this.chooseCard();
   }
-  card() {
+  chooseCard() {
     this.paymentType = "card";
     this.paypalButton.el.classList.remove("active");
     this.cardButton.el.classList.add("active");
   }
-  paypal() {
+  choosePaypal() {
     this.paymentType = "paypal";
     this.cardButton.el.classList.remove("active");
     this.paypalButton.el.classList.add("active");
@@ -116,25 +130,74 @@ export class PayPage {
   redirect(page) {
     this.navCtrl.navigateForward(page, {animated: false});
   }
+  paypal() {
+    this.payPal.init({
+      PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
+      PayPalEnvironmentSandbox: 'YOUR_SANDBOX_CLIENT_ID'
+    }).then(() => {
+
+      // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
+      this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+        // Only needed if you get an "Internal Service Error" after PayPal login!
+        //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
+      })).then(() => {
+        let payment = new PayPalPayment('3.33', 'USD', 'Description', 'sale');
+        this.payPal.renderSinglePaymentUI(payment).then(() => {
+          // Successfully paid
+    
+          this.goToReport();
+          // Example sandbox response
+          //
+          // {
+          //   "client": {
+          //     "environment": "sandbox",
+          //     "product_name": "PayPal iOS SDK",
+          //     "paypal_sdk_version": "2.16.0",
+          //     "platform": "iOS"
+          //   },
+          //   "response_type": "payment",
+          //   "response": {
+          //     "id": "PAY-1AB23456CD789012EF34GHIJ",
+          //     "state": "approved",
+          //     "create_time": "2016-10-03T13:33:33Z",
+          //     "intent": "sale"
+          //   }
+          // }
+        }, () => {
+          // Error or render dialog closed without being successful
+        });
+      }, () => {
+        // Error in configuration
+      });
+    }, () => {
+      // Error in initialization, maybe PayPal isn't supported or something else
+    });
+  }
+  card() {
+    this.stripe.setPublishableKey('my_publishable_key');
+
+    let card = {
+      number: '4242424242424242',
+      expMonth: 12,
+      expYear: 2020,
+      cvc: '220'
+    }
+
+    this.stripe.createCardToken(card)
+      .then(token => {
+        console.log(token.id);
+        this.goToReport();
+      }).catch(error => console.error(error));
+
+  }
   continue() {
+    this.goToReport();
     if (this.paymentType == "card" && !this.displayCard) {
       this.displayCard = true;
     } else if (this.paymentType == "paypal" && !this.displayCard) {
-
+      this.paypal();
     } else if (this.displayCard) {
-      const ref = this.angularFirestore.collection("users").doc(this.data.user.uid);
-      ref.get().subscribe(obs => {
-        var data: any = obs.data();
-        var reports: any = data.reports;
-        if (reports) {
-          reports.push(this.data.mobileData);
-        } else {
-          reports = Array(this.data.mobileData);
-        }
-        ref.update({
-          reports: reports
-        }).then(() => this.goToReport());
-      })
+      this.card();
     }
   }
   goToReport() {

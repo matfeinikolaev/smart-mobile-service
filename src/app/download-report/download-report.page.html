@@ -8,12 +8,35 @@
 
 <ion-content [fullscreen]="true">
   <ion-label>{{titleText}}</ion-label>
-  
-  <div class="container">
-     <ion-label>{{labelText}}</ion-label>
-     <br>
-     <ion-icon src="../../assets/img/download-report-icon.svg"></ion-icon>
- </div>
+
+  <div class="print-wrapper" id="print-wrapper">
+    <table>
+      <tbody>
+        <tr>
+          <td class="vertical-header">Phone Model</td>
+          <td data-column="Phone Model">{{data.mobileData.phoneModel}}</td>
+        </tr>
+        <tr>
+          <td class="vertical-header">Volume memory</td>
+          <td data-column="Volume memory">{{data.mobileData.volumeMemory}}</td>
+        </tr>
+        <tr>
+          <td class="vertical-header">Serial number</td>
+          <td data-column="Serial number">{{data.mobileData.serialNumber}}</td>
+        </tr>
+        <tr>
+          <td class="vertical-header">Defect</td>
+          <td data-column="Defect">{{data.mobileData.defect}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container" (click)="createPdf()">
+    <ion-label>{{labelText}}</ion-label>
+    <br>
+    <ion-icon src="../../assets/img/download-report-icon.svg"></ion-icon>
+  </div>
  <ion-row class="enter-button">
    <ion-button (click)="save()" class="bottom-button">{{saveButtonText}}</ion-button>
  </ion-row>
@@ -22,20 +45,20 @@
 <ion-footer>
   <ion-toolbar>
     <ion-row>
-      <ion-col>
-        <ion-icon (click)="redirect('home')" src="../../assets/img/home-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('home')">
+        <ion-icon src="../../assets/img/home-icon.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('location')" src="../../assets/img/location-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('location')">
+        <ion-icon src="../../assets/img/location-icon.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('add-report')" class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
+      <ion-col (click)="redirect('add-report')">
+        <ion-icon class="add-button" src="../../assets/img/add-button.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('reports')" src="../../assets/img/reports-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('reports')">
+        <ion-icon src="../../assets/img/reports-icon.svg"></ion-icon>
       </ion-col>
-      <ion-col>
-        <ion-icon (click)="redirect('profile')" src="../../assets/img/profile-icon.svg"></ion-icon>
+      <ion-col (click)="redirect('profile')">
+        <ion-icon src="../../assets/img/profile-icon.svg"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-toolbar>

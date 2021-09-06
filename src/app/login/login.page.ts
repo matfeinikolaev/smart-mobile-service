@@ -1,12 +1,15 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { Data } from '../data/data';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { TwitterConnect } from '@ionic-native/twitter-connect/ngx';
+import { SignInWithApple, AppleSignInResponse, AppleSignInErrorResponse, ASAuthorizationAppleIDRequest } from '@ionic-native/sign-in-with-apple/ngx';
 import * as FireBase from 'firebase';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { Device } from '@ionic-native/device/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-login',
@@ -35,9 +38,13 @@ export class LoginPage {
     public data: Data, 
     private googlePlus: GooglePlus, 
     private facebookConnect: Facebook, 
-    private twitterConnect: TwitterConnect, 
+    private twitterConnect: TwitterConnect,
+    private signInWithApple: SignInWithApple,
     private angularFireAuth: AngularFireAuth, 
-    private angularFirestore: AngularFirestore
+    private angularFirestore: AngularFirestore,
+    private device: Device,
+    private platform: Platform,
+    private iab: InAppBrowser,
     ) {}
   ionViewDidEnter() {
     this.fetchData();
@@ -86,6 +93,8 @@ export class LoginPage {
     }
   }
   typing() {
+    this.errorMessage = "";
+    this.displayError = false;
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var check = re.test(String(this.email).toLowerCase());
     if (!check && this.email != "") {
@@ -112,7 +121,34 @@ export class LoginPage {
   login() {
     this.angularFireAuth.signInWithEmailAndPassword(this.email, this.password).then(res => {
       this.getUserData(res.user);
-    }, err => console.error(err));
+    }, err => {
+      console.error(err);
+      this.highlightError(err);
+    });
+  }
+  highlightError(err) {
+    switch (err.code) {
+      case "auth/user-not-found": 
+        switch(this.data.settings.language) {
+          case "en": this.errorMessage = "This user does not exist."; break;
+          case "ge": this.errorMessage = "Dieser Benutzer existiert nicht."; break;
+          case "ru": this.errorMessage = "Пользователя с этими данными не существует."; break;
+          default: this.errorMessage = "This user does not exist."; break;
+        }; 
+        this.displayError = true;
+        break;
+      case "auth/wrong-password":
+        switch(this.data.settings.language) {
+          case "en": this.passwordErrorMessage = "Oops, this is not a valid password."; break;
+          case "ge": this.passwordErrorMessage = "Hoppla, das ist kein gültiges Passwort."; break;
+          case "ru": this.passwordErrorMessage = "Неверный пароль."; break;
+          default: this.passwordErrorMessage = "Oops, this is not a valid password."; break;
+        }; 
+        this.displayPasswordError = true;
+        this.passwordInput.el.classList.add("item-with-error");
+        this.passwordInput.el.firstChild.classList.add("input-with-error");
+        break;
+    }
   }
   getUserData(user) {
     const ref = this.angularFirestore.collection("users").doc(user.uid);
@@ -170,16 +206,71 @@ export class LoginPage {
     });
   }
   google() {
-    // this.signInWithPopup(new FireBase.default.auth.GoogleAuthProvider());
+    this.signInWithPopup(new FireBase.default.auth.GoogleAuthProvider());
     this.googlePlus.login({ 'webClientId': '111576881427-hvlntstioehjipdlcbc5annh68deopdn.apps.googleusercontent.com' }).then(res => {
       var credential = FireBase.default.auth.GoogleAuthProvider.credential(res.idToken);
       this.signInWithCredential(credential).then(res => {
         this.saveData(res);
-      }, err => console.error(err));
-    }, err => console.error(JSON.stringify(err)));
+      }, err => {
+        console.error(err);
+        this.highlightError(err);
+      });
+    }, err => {
+      console.error(JSON.stringify(err));
+      this.highlightError(err);
+    });
   }
-  apple() {
-
+  apple() { 
+    // this.signInWithPopup(new FireBase.default.auth.OAuthProvider("apple.com"));
+    if (this.device.platform == "iOS" || this.platform.is("ios") || this.platform.is("ipad") || this.platform.is("iphone")) {
+      this.signInWithApple.signin({
+        requestedScopes: [
+          ASAuthorizationAppleIDRequest.ASAuthorizationScopeFullName,
+          ASAuthorizationAppleIDRequest.ASAuthorizationScopeEmail
+        ]
+      })
+      .then((res: AppleSignInResponse) => {
+        // https://developer.apple.com/documentation/signinwithapplerestapi/verifying_a_user
+        let credential = new FireBase.default.auth.OAuthProvider("apple.com").credential(res.identityToken);
+        var userData = { first_name: res.fullName.givenName, last_name: res.fullName.familyName, email: res.email, user_email: res.email };
+        // Use this credential to log in and save some data
+        this.signInWithCredential(credential).then(res => {
+          this.saveData(res);
+        }, err => {
+          console.error(err);
+          this.highlightError(err);
+        });
+      }, err => {
+        console.error(err);
+        this.highlightError(err);
+      })
+      .catch((error: AppleSignInErrorResponse) => {
+        console.error(JSON.stringify(error));
+        this.highlightError(error);
+      });
+    } else {
+      this.signInWithAppleInAppBrowser();
+    }
+  }
+  signInWithAppleInAppBrowser() {
+    var url = "https://appleid.apple.com/auth/authorize?response_type=code+id_token&client_id=com.jensen.applesignin&redirect_uri=https://smart-mobile-service-fast.firebaseapp.com/__/auth/handler";
+    
+    var browser = this.iab.create(url, '_self', "location=no,toolbar=no");
+    browser.show();
+    browser.on('loadstart').subscribe(data => {
+      var idToken = data.url.split("id_token=")[1];
+      if (idToken) {
+        let credential = new FireBase.default.auth.OAuthProvider("apple.com").credential(idToken);
+        this.signInWithCredential(credential).then(res => {
+          this.saveData(res);
+        }, err => {
+          console.error(JSON.stringify(err));
+          this.highlightError(err);
+        });
+        browser.close();
+      }
+      console.log(JSON.stringify(data));
+    });
   }
   facebook() {
     // this.signInWithPopup(new FireBase.default.auth.FacebookAuthProvider());
@@ -191,7 +282,10 @@ export class LoginPage {
         var url = 'https://graph.facebook.com/me/?fields=' + fields + '&access_token=' + accessToken;
         this.signInWithCredential(credential).then(res => {
           this.saveData(res);
-        }, err => console.error(JSON.stringify(err)));
+        }, err => {
+          console.error(JSON.stringify(err));
+          this.highlightError(err);
+        });
       } else {
         this.facebookConnect.login(['public_profile', 'email']).then((res) => {
             var accessToken = res.authResponse.accessToken;
@@ -200,7 +294,10 @@ export class LoginPage {
             var url = 'https://graph.facebook.com/me/?fields=' + fields + '&access_token=' + accessToken;
             this.signInWithCredential(credential).then(res => {
               this.saveData(res);
-            }, err => console.error(JSON.stringify(err)));
+            }, err => {
+              console.error(JSON.stringify(err));
+              this.highlightError(err);
+            });
             // Get user data
             // fetch(url)
             //     .then(response => response.json())
@@ -211,9 +308,15 @@ export class LoginPage {
             //       this.saveData(res);
             //     }, err => console.error(err));
             // }, err => { console.error(JSON.stringify(err)); });
-        }, err => console.error(JSON.stringify(err)));
+        }, err => {
+          console.error(JSON.stringify(err));
+          this.highlightError(err);
+        });
       }
-    }, err => console.error(JSON.stringify(err)));
+    }, err => {
+      console.error(JSON.stringify(err));
+      this.highlightError(err);
+    });
   }
   twitter() {
     // this.signInWithPopup(new FireBase.default.auth.TwitterAuthProvider());
@@ -221,8 +324,14 @@ export class LoginPage {
       var credential = FireBase.default.auth.TwitterAuthProvider.credential(res.token, res.secret);
       this.signInWithCredential(credential).then(res => {
         this.saveData(res);
-      }, err => console.error(JSON.stringify(err)));
-    }, err => console.error(JSON.stringify(err)))
+      }, err => {
+        console.error(JSON.stringify(err));
+        this.highlightError(err);
+      });
+    }, err => {
+      console.error(JSON.stringify(err));
+      this.highlightError(err);
+    })
   }
   toggleError(error) {
     this.errorMessage = error;

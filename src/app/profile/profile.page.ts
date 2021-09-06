@@ -6,7 +6,9 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AngularFireStorage } from "@angular/fire/storage";
+import * as Firebase from "firebase";
 import { Crop } from '@ionic-native/crop/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 
 @Component({
   selector: 'app-profile',
@@ -44,16 +46,22 @@ export class ProfilePage {
     private angularFirestore: AngularFirestore,
     private angularFireStorage: AngularFireStorage,
     private crop: Crop,
+    private webview: WebView,
     ) {
 
   }
   ngOnInit() {}
   ionViewDidEnter() {
+    // this.uploadImgToFirebaseStorage("file:///data/user/0/eu.smartmobileservice.app/cache/tmp_IMG-20210902-WA0006345847542.jpg");
     this.fetchData();
     this.setStringsToLanguage();
   }
+
   fetchData() {
     this.data = JSON.parse(window.localStorage.getItem("data"));
+    this.angularFirestore.collection("users").doc(this.data.user.uid).ref.get().then(res => {
+      this.data.user = res.data();
+    })
   }
   setStringsToLanguage() {
     switch(this.data.settings.language) {
@@ -127,9 +135,10 @@ export class ProfilePage {
   }
   save() {
     const ref = this.angularFirestore.collection("users").doc(this.data.user.uid);
-    ref.set(this.data.user);
-    ref.get().subscribe(obs => {
-      this.saveDataToStorage(obs.data());
+    ref.set(this.data.user).then(() => {
+      ref.get().subscribe(obs => {
+        this.saveDataToStorage(obs.data());
+      });
     });
   }
   saveDataToStorage(data) {
@@ -138,72 +147,74 @@ export class ProfilePage {
     window.localStorage.setItem("data", JSON.stringify(this.data));
   }
 
-
-
-
-
-
-
-
-
   uploadPhoto() {
-    let options= {
-      maximumImagesCount: 1,
-    }
-    this.photos = new Array < string > ();
-    this.imagePicker.getPictures(options).then((results) => {
-      this.reduceImages(results).then((results) => this.upload());
-    }, (err) => alert("Error: " + JSON.stringify(err)));
+    this.openImagePicker();
   }
 
-  reduceImages(selected_pictures: any): any {
-    return selected_pictures.reduce((promise: any, item: any) => {
-        return promise.then((result) => {
-            return this.crop.crop(item, {
-                      quality: 75,
-                      targetHeight: 100,
-                      targetWidth: 100
-                    }).then(
-                      cropped_image => {
-                        this.photos = cropped_image;
-                        alert(JSON.stringify(this.photos));
-                      }, err => alert(JSON.stringify(err))
-                    );
-            });
-    }, Promise.resolve());
+  openImagePicker() {
+    this.imagePicker.hasReadPermission()
+    .then(result => {
+      if (result === false) {
+        this.imagePicker.requestReadPermission();
+      }
+      else if (result === true) {
+        this.imagePicker.getPictures({
+          // the amout of images that the user can select
+          maximumImagesCount: 1
+        }).then(results => {
+          for (var i = 0; i < results.length; i++) {
+            this.crop.crop(results[i], {quality: 75}).then(
+              newImage => {
+                this.uploadImageToFirebase(newImage);
+              },
+              error => console.error("Error cropping image", error)
+            );
+          }
+        }, err => console.log(err));
+      }
+    }, err => console.log(err));
   }
-  upload() {
-    this.angularFireStorage.upload(`users/${this.data.user.uid}/`, this.photos)
-    // const fileTransfer: FileTransferObject = this.transfer.create();
-    // var headers = new Headers();
-    // headers.append('Content-Type', 'multipart/form-data');
-    // let options: FileUploadOptions = {
-    //     fileKey: 'file',
-    //     fileName: 'name.jpg',
-    //     headers: {
-    //         headers
-    //     }
-    // }
-    // fileTransfer.upload(this.photos, "url", options).then((data) => {
-    //     this.imageresult = JSON.parse(data.response);
-    //     this.imageIndex = this.imageIndex + 1;
-    //     // success
-    // }, (err) => {
-    //     alert(JSON.stringify(err));
-    // })
+  uploadImageToFirebase(image) {
+    image = this.webview.convertFileSrc(image);
+  
+    // uploads image to firebase storage
+    this.uploadImage(image).then(photoURL => {
+      this.saveImgToDB(photoURL);
+      console.log(JSON.stringify(photoURL));
+    });
+  }
+  saveImgToDB(url) {
+    this.data.user.img = url;
+    this.save();
+  }
+  uploadImage(imageURI) {
+    return new Promise<any>((resolve, reject) => {
+      let storageRef = Firebase.default.storage().ref();
+      let imageRef = storageRef.child('users').child(this.data.user.uid);
+      this.encodeImageUri(imageURI, (image64) => {
+        imageRef.putString(image64, 'data_url').then(snapshot => {
+          resolve(snapshot.ref.getDownloadURL());
+        }, err => {
+          reject(err);
+        })
+      })
+    })
   }
 
-
-
-
-
-
-
-
-
-
-
-
+  encodeImageUri(imageUri, callback) {
+    var c = document.createElement('canvas');
+    var ctx = c.getContext("2d");
+    var img = new Image();
+    img.onload = function () {
+      var aux:any = this;
+      c.width = aux.width;
+      c.height = aux.height;
+      ctx.drawImage(img, 0, 0);
+      var dataURL = c.toDataURL("image/jpeg");
+      callback(dataURL);
+    };
+    img.src = imageUri;
+  };
 
   signOut() {
     this.angularFireAuth.signOut().then(res => {

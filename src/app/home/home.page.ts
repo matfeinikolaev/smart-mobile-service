@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Data } from '../data/data';
 import { Config } from '@ionic/angular';
+import { Admob, AdmobOptions } from '@ionic-native/admob';
+import { AngularFirestore } from "@angular/fire/firestore";
+
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -16,14 +20,27 @@ export class HomePage {
   backButtonText: string;
   titleText: string;
   costEstimateButtonText: string;
-  constructor(private navCtrl: NavController, public data: Data, public config: Config) {}
-  ngOnInit() {}
+  constructor(
+    private navCtrl: NavController, 
+    public data: Data, 
+    public config: Config,
+    private angularFirestore: AngularFirestore,
+    ) {}
+  ngOnInit() {
+    Admob.createBannerView().then(res => {
+      alert(JSON.stringify(res));
+    }, err => alert(JSON.stringify(err)));
+  }
   ionViewDidEnter() {
     this.fetchData();
     this.setStringsToLanguage();
   }
   fetchData() {
     this.data = JSON.parse(window.localStorage.getItem("data"));
+    this.angularFirestore.collection("users").doc(this.data.user.uid).ref.get().then(res => {
+      this.data.user = res.data();
+      window.localStorage.setItem("data", JSON.stringify(this.data));
+    })
   }
   setStringsToLanguage() {
     switch(this.data.settings.language) {

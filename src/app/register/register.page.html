@@ -39,8 +39,8 @@
     </ion-row>
   </div>
   <ion-row class="agreement">
-    <ion-col><p>{{termsConditionsText}}</p></ion-col>
-    <ion-col><div><ion-checkbox mode="md"></ion-checkbox></div></ion-col>
+    <ion-col><p #termsConditionsElementText>{{termsConditionsText}}</p></ion-col>
+    <ion-col><div><ion-checkbox #termsConditionsElementCheckBox mode="md" [(ngModel)]="termsConditionsAccepted"></ion-checkbox></div></ion-col>
   </ion-row>
   <ion-row class="errorMessage">
     <span *ngIf="displayError">{{errorMessage}}</span>

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { createClient } from '@supabase/supabase-js';
 import { Data } from '../data/data';
 import { Config } from '@ionic/angular';
+declare var FCM;
 @Component({
   selector: 'app-settings',
   templateUrl: 'settings.page.html',
@@ -23,7 +23,11 @@ export class SettingsPage {
   deleteReportsString: string;
   settingsString: string;
   backButtonText: string;
-  constructor(private navCtrl: NavController, public data: Data, public config: Config) {
+  constructor(
+    private navCtrl: NavController, 
+    public data: Data, 
+    public config: Config,
+    ) {
   }
   ngOnInit() {}
   ionViewDidEnter() {
@@ -48,7 +52,13 @@ export class SettingsPage {
     this.data = data;
     window.localStorage.setItem("data", JSON.stringify(this.data));
   }
-  switchNotifications() {}
+  switchNotifications() {
+    FCM.getToken().then(token => {
+      alert(JSON.stringify(token));
+    }, err => {
+      alert(JSON.stringify(err));
+    });
+  }
   openLanguageList() {
     this.displayLanguageList = !this.displayLanguageList;
   }

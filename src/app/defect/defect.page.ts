@@ -79,6 +79,7 @@ export class DefectPage {
   }
   saveDataToStorage(data) {
     this.data.user = data;
+    this.data.user.chosenDefect = this.defect;
     console.log(this.data);
     window.localStorage.setItem("data", JSON.stringify(this.data));
   }
