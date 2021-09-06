@@ -23,6 +23,8 @@
     <preference name="Orientation" value="portrait" />
     <preference name="TwitterConsumerKey" value="alTDS9IFKLcJOSflBx6eq4FBr" />
     <preference name="TwitterConsumerSecret" value="lu72nUT31iPj2Hesjm7y5wZXhdws4rzUPSvbY3XkiHGPmfsVd3" />
+    <preference name="android-targetSdkVersion" value="29" />
+    <preference name="android-minSdkVersion" value="24" />
     <platform name="android">
         <config-file parent="/manifest/application" platform="android" target="AndroidManifest.xml">
             <activity android:label="@string/multi_app_name" android:name="com.synconset.MultiImageChooserActivity" android:theme="@style/Theme.AppCompat.Light" />
