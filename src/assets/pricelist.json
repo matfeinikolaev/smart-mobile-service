@@ -1,0 +1,793 @@
+{
+  "i3g/3gs": {
+    "en": [
+        "Battery change",
+        "Touch with glass home button and proximity sensor",
+        "LCD",
+        "Power, Loud-Quiet and Audio Jack Input",
+        "Cleaning completely from the inside (water damage)",
+        "Backcover change",
+        "Vibration motor"
+    ],
+    "ge": [
+        "Batterie Wechsel",
+        "Touch mit glas home Button und Näherungssensor",
+        "LCD",
+        "Power, Laut-Leise und Audio Jack Eingang",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Backcover Wechsel",
+        "Vibrationsmotor"
+    ],
+    "ru": [
+        "Замена батареи",
+        "Сенсор со стеклянной кнопкой Домой и датчиком приближения",
+        "ЖК",
+        "Питание, громко-тихий вход и аудиоразъем",
+        "Полная очистка изнутри (повреждение водой)",
+        "Смена обложки",
+        "Вибрационный мотор"
+    ]
+  },
+  "i4": {
+    "en": [
+        "Battery change (original spare part)",
+        "Touch with LCD",
+        "Back cover change (original spare part)",
+        "Dock connector with micro (original spare part)",
+        "Vibration motor (original spare part)",
+        "Backlight chip exchange (original spare part)",
+        "Camera (original spare part)",
+        "Earpiece change (original spare part)",
+        "Middle frame exchange (original spare part)",
+        "Loud-quiet and audio jack input (original spare part)",
+        "Power and proximity sensor (original spare part)",
+        "Home button (original spare part)",
+        "Cleaning completely from the inside (water damage)"
+    ],
+    "ge": [
+        "Batterie Wechsel (Original Ersatzteil)",
+        "Touch mit LCD",
+        "Backcover Wechsel (Original Ersatzteil)",
+        "Dockconnector mit Mikro (Original Ersatzteil)",
+        "Vibrationsmotor (Original Ersatzteil)",
+        "Hintergrundsbeleuchtungs Chip Austausch (Original Ersatzteil)",
+        "Kamera (Original Ersatzteil)",
+        "Hörmuschel Wechsel (Original Ersatzteil)",
+        "Mittelrahmen Tausch (Original Ersatzteil)",
+        "Laut-Leise und Audio Jack Eingang (Original Ersatzteil)",
+        "Power und Näherungssensor (Original Ersatzteil)",
+        "Home Button (Original Ersatzteil)",
+        "Reinigung komplett von innen (Wasserschaden)"
+    ],
+    "ru": [
+        "Замена аккумулятора (оригинальная запчасть)",
+        "Сенсорный с ЖК-дисплеем",
+        "Замена задней крышки (оригинальная запчасть)",
+        "Коннектор док-станции с микро (оригинальная запчасть)",
+        "Вибромотор (оригинальная запчасть)",
+        "Замена чипа подсветки (оригинальная запчасть)",
+        "Камера (оригинальная запчасть)",
+        "Замена динамика (оригинальная запчасть)",
+        "Замена средней рамы (оригинальная запчасть)",
+        "Громко-тихий и аудиовход (оригинальная запчасть)",
+        "Датчик мощности и приближения (оригинальная запчасть)",
+        "Кнопка Домой (оригинальная запчасть)",
+        "Полная очистка изнутри (повреждение водой)"
+    ]
+  },
+  "i4s": {
+    "en": [
+        "Battery change (original spare part)",
+        "Touch with LCD",
+        "Back cover change (original spare part)",
+        "Dock connector with micro (original spare part)",
+        "Vibration motor (original spare part)",
+        "Wlan chip exchange (original spare part)",
+        "Wlan Chip Reflow",
+        "Camera (original spare part)",
+        "Earpiece change (original spare part)",
+        "Middle frame exchange (original spare part)",
+        "Loud-quiet and audio jack input (original spare part)",
+        "Power and proximity sensor (original spare part)",
+        "Home button (original spare part)",
+        "Cleaning completely from the inside (water damage)"
+    ],
+    "ge": [
+        "Batterie Wechsel (Original Ersatzteil)",
+        "Touch mit LCD",
+        "Backcover Wechsel (Original Ersatzteil)",
+        "Dockconnector mit Mikro (Original Ersatzteil)",
+        "Vibrationsmotor (Original Ersatzteil)",
+        "Wlan Chip Austausch (Original Ersatzteil)",
+        "Wlan Chip Reflow",
+        "Kamera (Original Ersatzteil)",
+        "Hörmuschel Wechsel (Original Ersatzteil)",
+        "Mittelrahmen Tausch (Original Ersatzteil)",
+        "Laut-Leise und Audio Jack Eingang (Original Ersatzteil)",
+        "Power und Näherungssensor (Original Ersatzteil)",
+        "Home Button (Original Ersatzteil)",
+        "Reinigung komplett von innen (Wasserschaden)"
+    ],
+    "ru": [
+        "Замена аккумулятора (оригинальная запчасть)",
+        "Сенсорный с ЖК-дисплеем",
+        "Замена задней крышки (оригинальная запчасть)",
+        "Коннектор док-станции с микро (оригинальная запчасть)",
+        "Вибромотор (оригинальная запчасть)",
+        "Обмен чипов Wlan (оригинальная запчасть)",
+        "Wlan Chip Reflow",
+        "Камера (оригинальная запчасть)",
+        "Замена динамика (оригинальная запчасть)",
+        "Замена средней рамы (оригинальная запчасть)",
+        "Громко-тихий и аудиовход (оригинальная запчасть)",
+        "Датчик мощности и приближения (оригинальная запчасть)",
+        "Кнопка Домой (оригинальная запчасть)",
+        "Полная очистка изнутри (повреждение водой)"
+    ]
+  },
+  "i5": {
+    "en": [
+        "Touch with LCD",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Glass on the back without lenses (original spare part)",
+        "Glass on the back with lenses (original spare part)",
+        "Cleaning completely from the inside (water damage)",
+        "Battery change (original spare part)",
+        "Power and silent (original spare part)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Back camera (original spare part)",
+        "Home button change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Glas auf Rückseite ohne Linsen (Original Ersatzteil)",
+        "Glas auf Rückseite mit Linsen (Original Ersatzteil)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Batterie Wechsel (Original Ersatzteil)",
+        "Power und Lautleise (Original Ersatzteil)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Backkamera (Original Ersatzteil)",
+        "Home button wechsel (Original Ersatzteil)"
+    ],
+    "ru": [
+        "Сенсорный с ЖК-дисплеем",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Стекло сзади без линз (оригинальная запчасть)",
+        "Стекло на тыльной стороне с линзами (оригинальная запчасть)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Замена аккумулятора (оригинальная запчасть)",
+        "Мощный и бесшумный (оригинальная запчасть)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Камера заднего вида (оригинальная запчасть)",
+        "Замена кнопки Home (оригинальная запчасть)"
+    ]
+  },
+
+  "i5c": {
+    "en": [
+        "Touch with LCD",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Battery change (original spare part)",
+        "Power and silent (original spare part)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Back camera (original spare part)",
+        "Home button change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Batterie Wechsel (Original Ersatzteil)",
+        "Power und Lautleise (Original Ersatzteil)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Backkamera (Original Ersatzteil)",
+        "Home button wechsel(Original Ersatzteil)"
+     
+    ],
+    "ru": [
+        "Сенсорный с ЖК-дисплеем",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Замена аккумулятора (оригинальная запчасть)",
+        "Мощный и бесшумный (оригинальная запчасть)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Камера заднего вида (оригинальная запчасть)",
+        "Замена кнопки Home (оригинальная запчасть)"
+    ]
+  },
+  "i5s": {
+    "en": [
+        "Touch with LCD",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Glass on the back without lenses (original spare part)",
+        "Glass on the back with lenses (original spare part)",
+        "Cleaning completely from the inside (water damage)",
+        "Battery change (original spare part)",
+        "Power and silent (original spare part)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Back camera (original spare part)",
+        "Home button (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Glas auf Rückseite ohne Linsen (Original Ersatzteil)",
+        "Glas auf Rückseite mit Linsen (Original Ersatzteil)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Batterie Wechsel (Original Ersatzteil)",
+        "Power und Lautleise (Original Ersatzteil)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Backkamera (Original Ersatzteil)",
+        "Home button (Original Ersatzteil)"
+     
+    ],
+    "ru": [
+        "Сенсорный с ЖК-дисплеем",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Стекло сзади без линз (оригинальная запчасть)",
+        "Стекло на тыльной стороне с линзами (оригинальная запчасть)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Замена аккумулятора (оригинальная запчасть)",
+        "Мощный и бесшумный (оригинальная запчасть)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Камера заднего вида (оригинальная запчасть)",
+        "Кнопка Home (оригинальная запчасть)"
+    ]
+  },
+  "ise": {
+    "en": [
+        "Touch with LCD",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Glass on the back without lenses (original spare part)",
+        "Glass on the back with lenses (original spare part)",
+        "Cleaning completely from the inside (water damage)",
+        "Battery change (original spare part)",
+        "Power and silent (original spare part)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Back camera (original spare part)",
+        "Home button (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Glas auf Rückseite ohne Linsen (Original Ersatzteil)",
+        "Glas auf Rückseite mit Linsen (Original Ersatzteil)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Batterie Wechsel (Original Ersatzteil)",
+        "Power und Lautleise (Original Ersatzteil)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Backkamera (Original Ersatzteil)",
+        "Home button (Original Ersatzteil)"
+     
+    ],
+    "ru": [
+        "Сенсорный с ЖК-дисплеем",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Стекло сзади без линз (оригинальная запчасть)",
+        "Стекло на тыльной стороне с линзами (оригинальная запчасть)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Замена аккумулятора (оригинальная запчасть)",
+        "Мощный и бесшумный (оригинальная запчасть)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Камера заднего вида (оригинальная запчасть)",
+        "Кнопка Home (оригинальная запчасть)"
+    ]
+  },
+
+  "i6": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Touch IC chip defective Re-solder (original spare part)",
+        "LCD backlight IC chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Touch IC Chip defekt Umlöten (Original Ersatzteil)",
+        "LCD Hintergrundsbeleuchtung IC Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+     
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Неисправна микросхема Touch IC Пайка (оригинальная запчасть)",
+        "Подсветка ЖК-дисплея Микросхема неисправна Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "i6+": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Touch IC chip defective Re-solder (original spare part)",
+        "LCD backlight IC chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Touch IC Chip defekt Umlöten (Original Ersatzteil)",
+        "LCD Hintergrundsbeleuchtung IC Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+     
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Неисправна микросхема Touch IC Пайка (оригинальная запчасть)",
+        "Подсветка ЖК-дисплея Микросхема неисправна Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "i6s": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Circuit board damage Chip defective Soldering (original spare part)",
+        "LCD backlight IC chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Platinenschaden Chip defekt Umlöten (Original Ersatzteil)",
+        "LCD Hintergrundsbeleuchtung IC Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Повреждение печатной платы Неисправность микросхемы Пайка (оригинальная запчасть)",
+        "Подсветка ЖК-дисплея Микросхема неисправна Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "i6s+": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Circuit board damage Chip defective Soldering (original spare part)",
+        "LCD backlight IC chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Platinenschaden Chip defekt Umlöten (Original Ersatzteil)",
+        "LCD Hintergrundsbeleuchtung IC Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+       
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Повреждение печатной платы Неисправность микросхемы Пайка (оригинальная запчасть)",
+        "Подсветка ЖК-дисплея Микросхема неисправна Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "i7": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Circuit board damage Chip defective Soldering (original spare part)",
+        "LCD backlight IC chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Platinenschaden Chip defekt Umlöten (Original Ersatzteil)",
+        "LCD Hintergrundsbeleuchtung IC Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+       
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Повреждение печатной платы Неисправность микросхемы Пайка (оригинальная запчасть)",
+        "Подсветка ЖК-дисплея Микросхема неисправна Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "i7+": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Circuit board damage Chip defective Soldering (original spare part)",
+        "LCD backlight IC chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Platinenschaden Chip defekt Umlöten (Original Ersatzteil)",
+        "LCD Hintergrundsbeleuchtung IC Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Повреждение печатной платы Неисправность микросхемы Пайка (оригинальная запчасть)",
+        "Подсветка ЖК-дисплея Микросхема неисправна Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "i8": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Circuit board damage Chip defective Soldering (original spare part)",
+        "LCD backlight IC chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Platinenschaden Chip defekt Umlöten (Original Ersatzteil)",
+        "LCD Hintergrundsbeleuchtung IC Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+       
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Повреждение печатной платы Неисправность микросхемы Пайка (оригинальная запчасть)",
+        "Подсветка ЖК-дисплея Микросхема неисправна Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "i8+": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Circuit board damage Chip defective Soldering (original spare part)",
+        "LCD backlight IC chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Platinenschaden Chip defekt Umlöten (Original Ersatzteil)",
+        "LCD Hintergrundsbeleuchtung IC Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+       
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Повреждение печатной платы Неисправность микросхемы Пайка (оригинальная запчасть)",
+        "Подсветка ЖК-дисплея Микросхема неисправна Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "ix": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Circuit board damage Chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Platinenschaden Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+       
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Повреждение печатной платы Неисправность микросхемы Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "ixr": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Circuit board damage Chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Platinenschaden Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+       
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Повреждение печатной платы Неисправность микросхемы Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "ixs": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Circuit board damage Chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Platinenschaden Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+       
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Повреждение печатной платы Неисправность микросхемы Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  },
+  "ixs-max": {
+    "en": [
+        "Touch with LCD (original spare part)",
+        "Circuit board damage Chip defective Soldering (original spare part)",
+        "Back cover change (without material)",
+        "Original back cover change (with material)",
+        "Cleaning completely from the inside (water damage)",
+        "Charging socket, headphone socket and antenna Flex (original spare part)",
+        "Front camera, earpiece and light sensor (original spare part)",
+        "Power, lock button (original spare part)",
+        "Silent and silent keys (original spare part)",
+        "Battery change (original spare part)"
+    ],
+    "ge": [
+        "Touch mit LCD (Original Ersatzteil)",
+        "Platinenschaden Chip defekt Umlöten (Original Ersatzteil)",
+        "Backcover Wechsel (ohne Material)",
+        "Original Backcover Wechsel (mit Material)",
+        "Reinigung komplett von innen (Wasserschaden)",
+        "Ladebuchse, Kopfhörerbuchse und Antennen Flex (Original Ersatzteil)",
+        "Frontkamera, Hörmuschel und Lichtsensor (Original Ersatzteil)",
+        "Power, Sperrtaste (Original Ersatzteil)",
+        "Lautlos und Lautleise tasten (Original Ersatzteil)",
+        "Batterie Wechsel (Original Ersatzteil)"
+       
+    ],
+    "ru": [
+        "Touch с LCD (оригинальная запчасть)",
+        "Повреждение печатной платы Неисправность микросхемы Пайка (оригинальная запчасть)",
+        "Замена задней крышки (без материала)",
+        "Замена оригинальной задней обложки (с материалом)",
+        "Полная очистка изнутри (повреждение водой)",
+        "Зарядное гнездо, гнездо для наушников и антенна Flex (оригинальная запчасть)",
+        "Фронтальная камера, динамик и датчик освещенности (оригинальная запчасть)",
+        "Питание, кнопка блокировки (оригинальная запчасть)",
+        "Бесшумные и бесшумные ключи (оригинальная запчасть)",
+        "Замена аккумулятора (оригинальная запчасть)"
+    ]
+  }
+}
