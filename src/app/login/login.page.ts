@@ -206,7 +206,7 @@ export class LoginPage {
     });
   }
   google() {
-    this.signInWithPopup(new FireBase.default.auth.GoogleAuthProvider());
+    // this.signInWithPopup(new FireBase.default.auth.GoogleAuthProvider());
     this.googlePlus.login({ 'webClientId': '111576881427-hvlntstioehjipdlcbc5annh68deopdn.apps.googleusercontent.com' }).then(res => {
       var credential = FireBase.default.auth.GoogleAuthProvider.credential(res.idToken);
       this.signInWithCredential(credential).then(res => {
