@@ -206,7 +206,7 @@ export class LoginPage {
     });
   }
   google() {
-    // this.signInWithPopup(new FireBase.default.auth.GoogleAuthProvider());
+    this.signInWithPopup(new FireBase.default.auth.GoogleAuthProvider());
     this.googlePlus.login({ 'webClientId': '111576881427-hvlntstioehjipdlcbc5annh68deopdn.apps.googleusercontent.com' }).then(res => {
       var credential = FireBase.default.auth.GoogleAuthProvider.credential(res.idToken);
       this.signInWithCredential(credential).then(res => {
@@ -336,5 +336,24 @@ export class LoginPage {
   toggleError(error) {
     this.errorMessage = error;
     this.displayError = true;
+  }
+  faceId() {
+  //   this.luxand.init({
+  //     licence: "",
+  //     dbname: "faceIdData",
+  //     loginTryCount: 3
+  //   }).then(res => {
+  //     alert(JSON.stringify(res));
+  //     this.luxand.login({timeout: 10000}).then(res => {
+  //       alert(JSON.stringify(res));
+  //     }, err => {
+  //       alert(JSON.stringify(err));
+  //       this.luxand.register({timeout: 10000}).then(res => {
+  //         alert(JSON.stringify(res));
+  //       }, err => {
+  //         alert(JSON.stringify(err));
+  //       });
+  //     });
+  //   }, err => alert(JSON.stringify(err))).catch(err => alert(JSON.stringify(err)));
   }
 }

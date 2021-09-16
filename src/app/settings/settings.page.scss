@@ -83,7 +83,6 @@ ion-label {
       font-weight: normal;
       font-size: 4vw;
       line-height: 128.91%;
-      color: #16181B;
       padding-top: 6vw;
       padding-bottom: 2vw;
       ion-icon {
@@ -140,8 +139,22 @@ ion-label {
     margin-bottom: 5vw;
   }
 }
+.opened {
+  color: #FF6B01;
+  ion-icon {
+    color: #FF6B01
+  }
+}
+.not-chosen-language {
+  --color: #797979;
+  color: #797979;
+  ion-label {
+    color: #797979;
+  }
+}
 .chosen-language {
-  --background: #FF6B01;
+  // --background: #FF6B01;
+      color: #16181B;
 }
 .enter-button {
   text-align: center;

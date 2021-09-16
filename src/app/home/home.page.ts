@@ -4,8 +4,8 @@ import { Data } from '../data/data';
 import { Config } from '@ionic/angular';
 import { Admob, AdmobOptions } from '@ionic-native/admob';
 import { AngularFirestore } from "@angular/fire/firestore";
-
-
+import { AppRate } from '@ionic-native/app-rate/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -25,8 +25,29 @@ export class HomePage {
     public data: Data, 
     public config: Config,
     private angularFirestore: AngularFirestore,
+    private appRate: AppRate,
+    private iab: InAppBrowser,
     ) {}
   ngOnInit() {
+    this.rateApp();
+    this.createAd();
+  }
+  rateApp() {
+    this.appRate.setPreferences({
+      openUrl: url => {
+        var browser = this.iab.create(url, '_blank', 'location=yes');
+        browser.show();
+      },
+      storeAppURL: {
+        ios: '<my_app_id>',
+        android: 'https://play.google.com/store/apps/details?id=eu.smartmobileservice.app',
+        blackberry: 'appworld://content/[App Id]/',
+        windows8: 'ms-windows-store:Review?name=<the Package Family Name of the application>'
+      }
+    });
+    this.appRate.promptForRating();
+  }
+  createAd() {
     Admob.createBannerView().then(res => {
       alert(JSON.stringify(res));
     }, err => alert(JSON.stringify(err)));

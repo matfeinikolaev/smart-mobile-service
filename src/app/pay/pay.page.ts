@@ -133,7 +133,7 @@ export class PayPage {
   paypal() {
     this.payPal.init({
       PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
-      PayPalEnvironmentSandbox: 'YOUR_SANDBOX_CLIENT_ID'
+      PayPalEnvironmentSandbox: 'AWEOgeMIKrqXBj253JYOU_sjNNtNzbYtPGLpT06zu0I4i5mYVm99lpg7lN4vlDeovCmXLEHC_q3R4KWi'
     }).then(() => {
 
       // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
@@ -141,7 +141,7 @@ export class PayPage {
         // Only needed if you get an "Internal Service Error" after PayPal login!
         //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
       })).then(() => {
-        let payment = new PayPalPayment('3.33', 'USD', 'Description', 'sale');
+        let payment = new PayPalPayment('0.01', 'USD', 'Description', 'sale');
         this.payPal.renderSinglePaymentUI(payment).then(() => {
           // Successfully paid
     
@@ -163,13 +163,16 @@ export class PayPage {
           //     "intent": "sale"
           //   }
           // }
-        }, () => {
+        }, e => {
+          alert(JSON.stringify(e));
           // Error or render dialog closed without being successful
         });
-      }, () => {
+      }, e => {
+        alert(JSON.stringify(e));
         // Error in configuration
       });
-    }, () => {
+    }, e => {
+      alert(JSON.stringify(e));
       // Error in initialization, maybe PayPal isn't supported or something else
     });
   }

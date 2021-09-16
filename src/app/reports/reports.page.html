@@ -9,13 +9,30 @@
 <ion-content [fullscreen]="true">
   <ion-label>{{titleText}}</ion-label>
   <div class="container">
-    <ion-item *ngFor="let report of data.user.reports" (click)="downloadReport(report)">
-      <span><ion-icon slot="start" src="../../assets/img/download-report-small-icon.svg"></ion-icon>{{report.defect}}</span>
-      <ion-icon class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
-    </ion-item>
+    <div *ngFor="let report of data.user.reports">
+      <ion-item (click)="displayReport(report)">
+        <span><ion-icon slot="start" src="../../assets/img/download-report-small-icon.svg"></ion-icon>{{report.defect}}</span>
+        <ion-icon *ngIf="!report.displayReport" class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
+        <ion-icon *ngIf="report.displayReport" class="chevron-icon" slot="end" name="chevron-down-sharp"></ion-icon>
+      </ion-item>
+      <div *ngIf="report.displayReport" id="print-wrapper">
+        <ion-item>
+          <ion-label>{{defectText}}: {{report.defect}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{phoneModelText}}: {{report.phoneModel}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{serialNumberText}}: {{report.serialNumber}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{volumeMemoryText}}: {{report.volumeMemory}}</ion-label>
+        </ion-item>
+      </div>
+    </div>
   </div>
   <ion-row class="enter-button">
-    <ion-button class="bottom-button">{{downloadButtonText}}</ion-button>
+    <ion-button class="bottom-button" (click)="downloadReport()" [disabled]="reportToDownload?.displayReport == null">{{downloadButtonText}} {{reportToDownload?.defect}} {{reportText}}</ion-button>
   </ion-row>
 </ion-content>
 

@@ -9,8 +9,11 @@
 <ion-content [fullscreen]="true">
   <ion-label>{{settingsString}}</ion-label>
   <div class="container">
-    <ion-item (click)="openLanguageList()">
-      <ion-label><ion-icon slot="start" src="../../assets/img/language-icon.svg"></ion-icon>{{languageString}}</ion-label>
+    <ion-item #openLanguageListButton (click)="openLanguageList()">
+      <ion-label>
+        <ion-icon slot="start" *ngIf="!displayLanguageList" src="../../assets/img/language-icon.svg"></ion-icon>
+        <ion-icon slot="start" *ngIf="displayLanguageList" src="../../assets/img/language-icon-chosen.svg"></ion-icon>
+        {{languageString}}</ion-label>
       <ion-icon *ngIf="!displayLanguageList" class="chevron-icon" slot="end" name="chevron-forward-sharp"></ion-icon>
       <ion-icon *ngIf="displayLanguageList" class="chevron-icon" slot="end" name="chevron-down-sharp"></ion-icon>
     </ion-item>
@@ -19,29 +22,29 @@
         <ion-item class="chosen-language" *ngIf="displayLanguageList" (click)="changeLanguage('en')">
           <ion-label><ion-icon slot="start" src="../../assets/img/uk-flag.svg"></ion-icon>{{english}}</ion-label>
         </ion-item>
-        <ion-item *ngIf="displayLanguageList" (click)="changeLanguage('ge')">
+        <ion-item class="not-chosen-language" *ngIf="displayLanguageList" (click)="changeLanguage('ge')">
           <ion-label><ion-icon slot="start" src="../../assets/img/de-flag.svg"></ion-icon>{{german}}</ion-label>
         </ion-item>
-        <ion-item *ngIf="displayLanguageList" (click)="changeLanguage('ru')">
+        <ion-item class="not-chosen-language" *ngIf="displayLanguageList" (click)="changeLanguage('ru')">
           <ion-label><ion-icon slot="start" src="../../assets/img/ru-flag.svg"></ion-icon>{{russian}}</ion-label>
         </ion-item>
       </div>
       <div *ngSwitchCase="'ge'">
-        <ion-item *ngIf="displayLanguageList" (click)="changeLanguage('en')">
+        <ion-item class="not-chosen-language" *ngIf="displayLanguageList" (click)="changeLanguage('en')">
           <ion-label><ion-icon slot="start" src="../../assets/img/uk-flag.svg"></ion-icon>{{english}}</ion-label>
         </ion-item>
         <ion-item class="chosen-language" *ngIf="displayLanguageList" (click)="changeLanguage('ge')">
           <ion-label><ion-icon slot="start" src="../../assets/img/de-flag.svg"></ion-icon>{{german}}</ion-label>
         </ion-item>
-        <ion-item *ngIf="displayLanguageList" (click)="changeLanguage('ru')">
+        <ion-item class="not-chosen-language" *ngIf="displayLanguageList" (click)="changeLanguage('ru')">
           <ion-label><ion-icon slot="start" src="../../assets/img/ru-flag.svg"></ion-icon>{{russian}}</ion-label>
         </ion-item>
       </div>
       <div *ngSwitchCase="'ru'">
-        <ion-item *ngIf="displayLanguageList" (click)="changeLanguage('en')">
+        <ion-item class="not-chosen-language" *ngIf="displayLanguageList" (click)="changeLanguage('en')">
           <ion-label><ion-icon slot="start" src="../../assets/img/uk-flag.svg"></ion-icon>{{english}}</ion-label>
         </ion-item>
-        <ion-item *ngIf="displayLanguageList" (click)="changeLanguage('ge')">
+        <ion-item class="not-chosen-language" *ngIf="displayLanguageList" (click)="changeLanguage('ge')">
           <ion-label><ion-icon slot="start" src="../../assets/img/de-flag.svg"></ion-icon>{{german}}</ion-label>
         </ion-item>
         <ion-item class="chosen-language" *ngIf="displayLanguageList" (click)="changeLanguage('ru')">

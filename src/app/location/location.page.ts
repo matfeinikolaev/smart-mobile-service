@@ -73,7 +73,6 @@ export class LocationPage {
 
   }
   createMap(coords) {
-    this.decodeCoords(coords);
     let mapOptions /*: google.maps.MapOptions*/ = {
       center: coords,
       zoom: 14,
@@ -126,6 +125,7 @@ export class LocationPage {
       this.diagnostic.isLocationEnabled().then(enabled => {
         if (enabled) {
           this.geolocation.getCurrentPosition().then(res => {
+            this.decodeCoords({lat: +res.coords.latitude, lng: +res.coords.longitude});
             this.createMap({lat: +res.coords.latitude, lng: +res.coords.longitude});
           }, err => {
             console.error(JSON.stringify(err));

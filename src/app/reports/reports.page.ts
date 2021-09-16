@@ -21,6 +21,11 @@ export class ReportsPage {
   titleText: string;
   downloadButtonText: string;
   reportToDownload: any;
+  defectText: string;
+  phoneModelText: string;
+  serialNumberText: string;
+  volumeMemoryText: string;
+  reportText: string;
   constructor(
     private navCtrl: NavController, 
     public data: Data, 
@@ -35,8 +40,11 @@ export class ReportsPage {
     this.fetchData();
     this.setStringsToLanguage();
   }
-  downloadReport(report) {
-    this.reportToDownload = report;
+  displayReport(report) {
+    report.displayReport = !report.displayReport;
+    this.reportToDownload ? this.reportToDownload = null : this.reportToDownload = report;
+  }
+  downloadReport() {
     this.createPdf();
   }
   
@@ -136,21 +144,41 @@ export class ReportsPage {
         this.titleText = "Reports history"; 
         this.downloadButtonText = "Download";
         this.backButtonText = "Back";
+        this.defectText = "Defect";
+        this.phoneModelText = "Phone model";
+        this.serialNumberText = "Serial number";
+        this.volumeMemoryText = "Volume memory";
+        this.reportText = "report";
         break;
       case "ge":
         this.titleText = "Berichtsverlauf";
         this.downloadButtonText = "Herunterladen";
         this.backButtonText = "Zurück";
+        this.defectText = "Defekt";
+        this.phoneModelText = "Telefonmodell";
+        this.serialNumberText = "Seriennummer";
+        this.volumeMemoryText = "Volumenspeicher";
+        this.reportText = "bericht";
         break;
       case "ru":
         this.titleText = "История отчетов";
         this.downloadButtonText = "Загрузить";
         this.backButtonText = "Назад";
+        this.defectText = "Дефект";
+        this.phoneModelText = "Модель телефона";
+        this.serialNumberText = "Серийный номер";
+        this.volumeMemoryText = "Объем памяти";
+        this.reportText = "отчет";
         break;
       default: 
         this.titleText = "Reports history"; 
         this.downloadButtonText = "Download";
         this.backButtonText = "Back";
+        this.defectText = "Defect";
+        this.phoneModelText = "Phone model";
+        this.serialNumberText = "Serial number";
+        this.volumeMemoryText = "Volume memory";
+        this.reportText = "report";
         break;
     }
   }

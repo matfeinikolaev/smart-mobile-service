@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Data } from '../data/data';
 import { Config } from '@ionic/angular';
@@ -23,6 +23,7 @@ export class SettingsPage {
   deleteReportsString: string;
   settingsString: string;
   backButtonText: string;
+  @ViewChild("openLanguageListButton") openLanguageListButton;
   constructor(
     private navCtrl: NavController, 
     public data: Data, 
@@ -61,6 +62,7 @@ export class SettingsPage {
   }
   openLanguageList() {
     this.displayLanguageList = !this.displayLanguageList;
+    this.openLanguageListButton.el.classList.contains("opened") ? this.openLanguageListButton.el.classList.remove("opened") : this.openLanguageListButton.el.classList.add("opened");
   }
   changeStringsToLanguage() {
     switch(this.data.settings.language) {
