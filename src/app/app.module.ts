@@ -28,6 +28,7 @@ import { Stripe } from '@ionic-native/stripe/ngx';
 import { Admob } from '@ionic-native/admob';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { AppRate } from '@ionic-native/app-rate/ngx';
 
 const fbconfig = {
   apiKey: 'AIzaSyB5YkQuxOVIrG2YTDOCE9WqqXnttxFUVjQ',
@@ -70,6 +71,7 @@ const fbconfig = {
     Stripe,
     WebView,
     InAppBrowser,
+    AppRate,
   ],
   bootstrap: [AppComponent],
 })
