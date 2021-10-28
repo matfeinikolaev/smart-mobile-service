@@ -5,7 +5,6 @@ import { Config } from '@ionic/angular';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
 import { Stripe } from '@ionic-native/stripe/ngx';
-
 @Component({
   selector: 'app-pay',
   templateUrl: 'pay.page.html',
@@ -132,7 +131,7 @@ export class PayPage {
   }
   paypal() {
     this.payPal.init({
-      PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
+      PayPalEnvironmentProduction: 'AUHh3owaiiyCBi1x0j9yf9Lppmh3oa9jAYfZUqtQYx41xROHk_cMBBSHF9yaWeNmbENnLIcPHYwrZo8q',
       PayPalEnvironmentSandbox: 'AWEOgeMIKrqXBj253JYOU_sjNNtNzbYtPGLpT06zu0I4i5mYVm99lpg7lN4vlDeovCmXLEHC_q3R4KWi'
     }).then(() => {
 
@@ -177,20 +176,20 @@ export class PayPage {
     });
   }
   card() {
-    this.stripe.setPublishableKey('my_publishable_key');
+    // this.stripe.setPublishableKey('my_publishable_key');
 
-    let card = {
-      number: '4242424242424242',
-      expMonth: 12,
-      expYear: 2020,
-      cvc: '220'
-    }
+    // let card = {
+    //   number: '4242424242424242',
+    //   expMonth: 12,
+    //   expYear: 2020,
+    //   cvc: '220'
+    // }
 
-    this.stripe.createCardToken(card)
-      .then(token => {
-        console.log(token.id);
-        this.goToReport();
-      }).catch(error => console.error(error));
+    // this.stripe.createCardToken(card)
+    //   .then(token => {
+    //     alert(JSON.stringify(token));
+    //     this.goToReport();
+    //   }).catch(error => console.error(error));
 
   }
   continue() {
